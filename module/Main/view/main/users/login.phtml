@@ -1,0 +1,8 @@
+<?php 
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('users/authenticate'));
+$form->prepare();
+
+?>
+<?=$this->bootstrap()->form($form);?>

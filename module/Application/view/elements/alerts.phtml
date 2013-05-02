@@ -1,0 +1,12 @@
+    <div class="alerts">
+      <?php foreach ($this->sources as $child): ?>
+        <?php if (isset($child->messages) && count($child->messages)): ?>
+          <?php foreach ($child->messages as $message): ?>
+            <div class="alert">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <?=$message?>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </div>

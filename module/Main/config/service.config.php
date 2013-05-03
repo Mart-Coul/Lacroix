@@ -1,9 +1,10 @@
 <?php
 
+namespace Main;
+
 use Zend\Authentication\AuthenticationService;
 
 use DoctrineModule\Authentication\Adapter\ObjectRepository as AuthAdapter;
-use DoctrineModule\Authentication\Storage\ObjectRepository as AuthStorage;
 
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Role\GenericRole;

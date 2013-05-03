@@ -7,6 +7,10 @@ use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
 
 abstract class ApplicationController extends AbstractActionController {
+  public $default_layout = null;
+
+  private $auth_service;
+
   public function maybeJson($data) {
     if ($this->isAjax()) {
       return new JsonModel($data);

@@ -58,6 +58,37 @@ class User {
                     $this->getRoleNames());
   }
 
+  public function toggleRole($em, $role, $flag) {
+    if ($this->hasRole($role) && !$flag) {
+      $this->removeRole($em, $role);
+    } elseif (!$this->hasRole($role) && $flag) {
+      $this->addRole($role);
+    };
+  }
+
+  public function addRole($role_slug) {
+    $role = new \Main\Entity\UserRole();
+    $role
+      ->setUser($this)
+      ->setRole($role_slug);
+    $this->getRoles()->add($role);
+
+    return $this;
+  }
+
+  public function removeRole($em, $role_slug) {
+    $roles = $this->getRoles();
+
+    foreach ($roles->toArray() as $role) {
+      if ($role->getRole() == $role_slug) {
+        $roles->removeElement($role);
+        $em->remove($role);
+      };
+    };
+
+    return $this;
+  }
+
   public function getRoleNames() {
     return array_map(function($r) { return $r->getRole(); },
                      $this->getRoles()->toArray());
@@ -104,6 +135,10 @@ class User {
     return array('id' => $this->getId(),
                  'email' => $this->getEmail(),
                  'person' => $this->getPerson() ? $this->getPerson()->toResponse() : null);
+  }
+
+  public function getUsername() {
+    return $this->getEmail();
   }
 
   public function getFullName() {

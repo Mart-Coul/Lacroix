@@ -7,6 +7,9 @@ return array('controllers' => array('invokables' => array('Lacroix\Controller\Pr
                                                           'Lacroix\Controller\Rooms' => 'Lacroix\Controller\RoomsController',
                                                           'Lacroix\Controller\ProductionLines' => 'Lacroix\Controller\ProductionLinesController',
                                                           'Lacroix\Controller\DataEntries' => 'Lacroix\Controller\DataEntriesController',
+                                                          'Lacroix\Controller\Users' => 'Lacroix\Controller\UsersController',
+                                                          'Lacroix\Controller\Mobile' => 'Lacroix\Controller\MobileController',
+                                                          'Lacroix\Controller\Configuration' => 'Lacroix\Controller\ConfigurationController',
                                                           
                                                           ),
                                     ),

@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="products")
+ * @ORM\Table(name="rooms")
  */
 class Room {
   /**

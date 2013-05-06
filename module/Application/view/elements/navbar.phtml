@@ -4,23 +4,7 @@
       <a class="btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse"></a>
       <a class="brand" href="<?php echo $this->url('home') ?>">Placeholder</a>
       <div class="nav-collapse collapse">
-      <ul class="nav pull-right">
-
-        <?php foreach ($this->navbar() as $item): ?>
-        <li <?php if (isset($item['dropdown-class'])): ?>class="active dropdown"<?php else: ?>class="active"<?php endif; ?>>
-          <a <?php if (isset($item['dropdown-class'])): ?>id="<?=$this->escapeHtml($item['dropdown-id'])?>" role="button" class="<?=$this->escapeHtml($item['dropdown-class'])?>" data-toggle="<?=$this->escapeHtml($item['dropdown-toggle'])?>" href="<?=$this->escapeHtml($item['dropdown-href'])?>"<?php else: ?>href="<?=$this->escapeHtml($item['url'])?> "<?php endif; ?><?php if (isset($item['hotkey'])): ?>data-hotkey="<?=$this->escapeHtml($item['hotkey'])?>"<?php endif; ?>><?=$this->escapeHtml($item['text'])?></a>
-          <?php if (isset($item['submenu'])): ?>
-       	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-report">
-            <?php foreach ($item['submenu'] as $subitem): ?>
-            <li><a href="<?=$this->escapeHtml($subitem['url'])?>"><?=$this->escapeHtml($subitem['name'])?></a></li>
-            <?php endforeach; ?>
-     
-  	      </ul>
-          <?php endif; ?>
-        </li>
-        <?php endforeach; ?>
-      
-      </ul>
+      <?= $this->navbar()->render() ?>
       </div>
     </div>
   </div>

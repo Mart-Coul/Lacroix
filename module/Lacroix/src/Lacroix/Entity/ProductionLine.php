@@ -32,11 +32,65 @@ class ProductionLine {
    */
   protected $room;
 
+  protected $_data_entry_repository;
+  protected $_translator;
+
   // It is not a wise idea to add readings referencne here; as long as
   // array  reference  materializes  when accessed,  this  means  that
   // Doctrine would attempt  to read the complete entry  history for a
   // production line; use DataEntry  repository to access the requried
   // history subset instead
+
+  public function getRoomName() {
+    $room = $this->getRoom();
+    if (!$room) { 
+      return null; 
+    };
+
+    return $room->getName();
+  }
+
+  public function getLastReading() {
+    return $this->getDataEntryRepository()->getLastReadingForLine($this);
+  }
+
+  public function getLastProductName() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getProductName() : $this->getTranslator()->translate('N/A');
+  }
+
+  public function getLastEmployees() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getEmployees() : $this->getTranslator()->translate('N/A');
+  }
+
+  public function getLastSpeed() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getSpeed() : $this->getTranslator()->translate('N/A');
+  }
+
+  public function getLastUpdateTime($format) {
+    $reading = $this->getLastReading();
+    if (!$reading) {
+      return $this->getTranslator()->translate('N/A');
+    };
+
+    $datetime = new \DateTime();
+    $datetime->setTimestamp($reading->getCreatedAt());
+    return $datetime->format($format);
+  }
+
+  public function getProductivityOptions() {
+    $reading = $this->getLastReading();
+    if (!$reading) {
+      return array();
+    };
+
+    return array(array('motor' => $reading->getReading() + 1,
+                       'result' => $reading->estimateSpeed($reading->getReading() + 1)),
+                 array('motor' => $reading->getReading() + 2,
+                       'result' => $reading->estimateSpeed($reading->getReading() + 2)));
+  }
 
   /*
    * Misc getters / setters
@@ -58,6 +112,14 @@ class ProductionLine {
     return $this->room;
   }
 
+  public function getDataEntryRepository() {
+    return $this->_data_entry_repository;
+  }
+
+  public function getTranslator() {
+    return $this->_translator;
+  }
+
   public function setName($value) {
     $this->name = $value;
     return $this;
@@ -70,6 +132,16 @@ class ProductionLine {
 
   public function setRoom($value) {
     $this->room = $value;
+    return $this;
+  }
+
+  public function setDataEntryRepository($value) {
+    $this->_data_entry_repository = $value;
+    return $this;
+  }
+
+  public function setTranslator($value) {
+    $this->_translator = $value;
     return $this;
   }
 }

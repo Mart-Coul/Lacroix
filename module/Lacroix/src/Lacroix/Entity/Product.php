@@ -39,7 +39,7 @@ class Product {
     return $this->name;
   }
 
-  public function getTargetProducttivity() {
+  public function getTargetProductivity() {
     return $this->target_productivity;
   }
 

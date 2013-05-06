@@ -3,13 +3,14 @@
 namespace Main\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\JsonModel;
+use Zen\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
 
 abstract class ApplicationController extends AbstractActionController {
   public $default_layout = null;
 
   private $auth_service;
+  private $_em;
 
   public function maybeJson($data) {
     if ($this->isAjax()) {
@@ -34,6 +35,10 @@ abstract class ApplicationController extends AbstractActionController {
     };
     
     return $this->auth_service;  
+  }
+
+  protected function getIdentity() {
+    return $this->getAuthService()->getIdentity();
   }
 
   protected function getEntityManager() {

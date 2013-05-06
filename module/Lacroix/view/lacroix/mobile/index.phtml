@@ -1,0 +1,45 @@
+<?php foreach ($lines as $line): ?>
+<div class="line">
+   <div class="name"><?=$this->escapeHtml($line->getName())?></div>
+
+   <dl class="last-reading">
+     <dt><?=$this->escapeHtml($this->translate('Production'));?></dt>
+     <dd><?=$this->escapeHtml($line->getLastProductName())?></dd>
+
+     <dt><?=$this->escapeHtml($this->translate('Employees'));?></dt>
+     <dd><?=$this->escapeHtml($line->getLastEmployees())?></dd>
+
+     <dt><?=$this->escapeHtml($this->translate('Speed'));?></dt>
+     <dd><?=$this->escapeHtml($line->getLastSpeed())?></dd>
+   </dl>
+
+   <?php if ($line->getProductivityOptions()): ?>
+   <table>
+     <caption><?=$this->escapeHtml($this->translate('Proposition to increase'))?></caption>
+
+     <thead> 
+       <tr>
+         <th><?=$this->escapeHtml($this->translate('Motor'))?></th>
+         <th><?=$this->escapeHtml($this->translate('Result'))?></th>
+       </tr>
+     </thead>
+
+     <tbody>
+       <?php foreach ($line->getProductivityOptions() as $option): ?>
+         <tr>
+           <td><?=$this->escapeHtml($option['motor']);?></td>
+           <td><?=$this->escapeHtml($option['result']);?></td>
+         </tr>
+       <?php endforeach; ?>
+     </tbody>
+   </table>
+   <?php endif; ?>
+
+   <a href="javascript: void()" class="btn btn-large"><?=$this->escapeHtml($this->translate('Add a new reading'))?></a>
+
+   <div class="last-update"> 
+     <?=$this->escapeHtml($this->translate('Last update at:')); ?>
+     <?=$line->getLastUpdateTime('m/d/Y H:i:s'); ?>
+   </div>
+</div>
+<?php endforeach; ?>

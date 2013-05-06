@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs nav-stacked">
+  <li <?php if ($current == 'production-lines'):?>class="active"<?php endif; ?>><a href="<?=$this->url('production-lines')?>"><?=$this->translate('Production Lines')?></a></li>
+  <li <?php if ($current == 'products'):?>class="active"<?php endif; ?>><a href="<?=$this->url('products')?>"><?=$this->translate('Products')?></a></li>
+  <li <?php if ($current == 'note-templates'):?>class="active"<?php endif; ?>><a href="<?=$this->url('note-templates')?>"><?=$this->translate('Generic Commens')?></a></li>
+  <li <?php if ($current == 'rooms'):?>class="active"<?php endif; ?>><a href="<?=$this->url('rooms')?>"><?=$this->translate('Rooms')?></a></li>
+  <li <?php if ($current == 'users'):?>class="active"<?php endif; ?>><a href="<?=$this->url('admin-users')?>"><?=$this->translate('Users')?></a></li>
+</ul>

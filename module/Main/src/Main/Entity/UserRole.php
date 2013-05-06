@@ -15,13 +15,18 @@ class UserRole {
 
   /**
    * @ORM\Id
+   * @ORM\Column(type="integer");
+   * @ORM\GeneratedValue(strategy="AUTO");
+   */
+  protected $id;
+
+  /**
    * @ORM\ManyToOne(targetEntity="User", fetch="LAZY")
    * @ORM\JoinColumn(name="user_id", referencedColumnName="id");
    */
   protected $user;
 
   /**
-   * @ORM\Id
    * @ORM\Column(type="string")
    */
   protected $role;
@@ -36,6 +41,10 @@ class UserRole {
   /*
    * Misc getters / setters
    */
+
+  public function getId() {
+    return $this->id;
+  }
 
   public function getUser() {
     return $this->user;

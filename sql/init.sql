@@ -15,9 +15,10 @@ CREATE TABLE users (
 ) ENGINE=InnoDB;
 
 CREATE TABLE user_roles (
+  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,  
   user_id INTEGER NOT NULL,
   role CHAR(32) NOT NULL,
-  PRIMARY KEY (user_id, role)
+  UNIQUE KEY (user_id, role)
 ) ENGINE=InnoDB;
 
 ALTER TABLE user_roles ADD FOREIGN KEY fk_user (user_id) REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE;

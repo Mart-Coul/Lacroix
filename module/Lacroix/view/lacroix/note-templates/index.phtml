@@ -1,1 +1,22 @@
-NOTE TEMPLATES
+<table class="table table-striped table-hover table-bordered table-data">
+  <thead>
+    <tr>
+      <th><?=$this->escapeHtml($this->translate('Content'))?></th>
+      <th class="actions">
+        <a class="btn" href="<?=$this->escapeHtml($this->url('note-templates/new'))?>" title="<?=$this->escapeHtml($this->translate('Create'))?>"><i class="icon icon-plus"></i></a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>  
+    <?php foreach ($items as $item): ?>
+    <tr>
+      <td><?=$this->escapeHtml($item->getContent())?></td>
+      <td class="actions">
+        <a class="btn" href="<?=$this->escapeHtml($this->url('note-templates/edit', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Edit'))?>"><i class="icon icon-pencil"></i></a>
+        <a class="btn btn-danger" href="<?=$this->escapeHtml($this->url('note-templates/delete', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Delete'))?>"><i class="icon icon-trash"></i></a>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</div>

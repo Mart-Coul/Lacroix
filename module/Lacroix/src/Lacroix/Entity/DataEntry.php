@@ -5,7 +5,7 @@ namespace Lacroix\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Lacroix\Repository\DataEntry")
  * @ORM\Table(name="data_entries")
  */
 class DataEntry {
@@ -48,14 +48,16 @@ class DataEntry {
    */
   protected $production_line;
 
-  public function getSpeed() {
-    // TODO
-    return $this->getReading();
+  public function getProductName() {
+    return $this->getProduct()->getName();
   }
 
-  public function getAdjustmentRecommentations() {
-    // TODO
-    return array();
+  public function getSpeed() {
+    return $this->estimateSpeed($this->getReading());
+  }
+
+  public function estimateSpeed($value) {
+    return $value * $this->getProductionLine()->getSpeedAdjustment();
   }
 
   /*

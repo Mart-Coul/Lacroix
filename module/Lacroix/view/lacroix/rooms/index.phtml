@@ -1,1 +1,22 @@
-ROOMS
+<table class="table table-striped table-hover table-bordered table-data">
+  <thead>
+    <tr>
+      <th><?=$this->escapeHtml($this->translate('Name'))?></th>
+      <th class="actions">
+        <a class="btn" href="<?=$this->escapeHtml($this->url('rooms/new'))?>" title="<?=$this->escapeHtml($this->translate('Create'))?>"><i class="icon icon-plus"></i></a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>  
+    <?php foreach ($items as $item): ?>
+    <tr>
+      <td><?=$this->escapeHtml($item->getName())?></td>
+      <td class="actions">
+        <a class="btn" href="<?=$this->escapeHtml($this->url('rooms/edit', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Edit'))?>"><i class="icon icon-pencil"></i></a>
+        <a class="btn btn-danger" href="<?=$this->escapeHtml($this->url('rooms/delete', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Delete'))?>"><i class="icon icon-trash"></i></a>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</div>

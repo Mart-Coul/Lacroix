@@ -65,6 +65,10 @@ class DataEntry {
   }
 
   public function estimateSpeed($value) {
+    if (!$this->getEmployees()) {
+      return 0;
+    };
+
     return round($value * $this->getProductionLine()->getSpeedAdjustment() / $this->getEmployees(), 2);
   }
 

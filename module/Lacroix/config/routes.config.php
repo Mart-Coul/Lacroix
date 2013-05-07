@@ -168,13 +168,37 @@ array(
 
     'may_terminate' => true,
     'child_routes' => array(
-      array(
+      'line' => array(
+        'type' => 'Segment',
+        'options' => array(
+          'route' => '/line/:line_id',
+          'defaults' => array(
+          ),
+        ),
+
+        'may_terminate' => false,
+        'child_routes' => array(
+          'line' => array(
+            'type' => 'Segment',
+            'options' => array(
+              'route' => '/readings',
+              'defaults' => array(
+                'action' => 'add-reading'
+              ),
+            ),
+
+            'may_terminate' => true,
+            'child_routes' => array(
+            ),
+          ),
+        ),
+      ),
+
+      'room' => array(
         'type' => 'Segment',
         'options' => array(
           'route' => '/room/:room_id',
           'defaults' => array(
-            '__NAMESPACE__' => 'Lacroix\Controller',
-            'controller' => 'Mobile',
             'action' => 'room'
           ),
         ),

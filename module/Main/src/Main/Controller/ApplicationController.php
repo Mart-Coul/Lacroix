@@ -3,7 +3,7 @@
 namespace Main\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zen\View\Model\JsonModel;
+use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
 
 abstract class ApplicationController extends AbstractActionController {
@@ -27,6 +27,34 @@ abstract class ApplicationController extends AbstractActionController {
     };
 
     return $h->getFieldValue() == 'XMLHttpRequest';
+  }
+
+  protected function validateAjaxGet($data, $context = array()) {
+    foreach ($data as $pair) {
+      list($value, $validator) = $pair;
+      
+      if (!$validator->isValid($value, $context)) {
+        throw new \Main\Exception\Validation($validator);
+      };
+    };
+  }
+
+  protected function validateAjaxCall($data, $context = array()) {
+    if (!$this->getRequest()->isPost()) {
+      throw new \Main\Exception\InvalidMethod();
+    };
+
+    $this->validateAjaxGet($data, $context);
+  }
+
+  protected function jsonError($data = null) {
+    return new JsonModel(array('success' => false,
+                               'data' => $data));
+  }
+
+  protected function jsonSuccess($data = null) {
+    return new JsonModel(array('success' => true,
+                               'data' => $data));
   }
 
   protected function getAuthService() {

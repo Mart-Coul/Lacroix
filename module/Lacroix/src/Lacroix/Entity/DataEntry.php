@@ -48,8 +48,16 @@ class DataEntry {
    */
   protected $production_line;
 
+  public function __construct() {
+    $this->created_at = time();
+  }
+
   public function getProductName() {
     return $this->getProduct()->getName();
+  }
+
+  public function getProductId() {
+    return $this->getProduct()->getId();
   }
 
   public function getSpeed() {
@@ -57,7 +65,11 @@ class DataEntry {
   }
 
   public function estimateSpeed($value) {
-    return $value * $this->getProductionLine()->getSpeedAdjustment();
+    return round($value * $this->getProductionLine()->getSpeedAdjustment() / $this->getEmployees(), 2);
+  }
+
+  public function getTargetProductivity() {
+    return $this->getProduct()->getTargetProductivity();
   }
 
   /*

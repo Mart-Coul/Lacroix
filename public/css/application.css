@@ -14,3 +14,80 @@ body {
 #generic-delete .controls { 
   margin-left: 0;
 }
+
+.line-container { 
+  float: left;
+  width: 50%;
+  max-width: 25em;
+}
+
+.line { 
+  margin: 1em;
+  padding: 1em 2.5em;
+  border-radius: 3px;
+}
+
+.line.ok { 
+  border: solid green 1px;
+}
+
+.line.warning { 
+  border: solid yellow 1px;
+}
+
+.line.bad { 
+  border: solid red 1px;
+}
+
+.line .name { 
+  margin: 0.5em auto 1em;
+
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.line dl.last-reading dt { 
+  margin: 0 0 1em 0;
+  padding: 0;
+  float: left;
+  clear: left;
+  width: 50%;
+}
+
+.line dl.last-reading dd { 
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 50%;
+  text-align: right;
+}
+
+.line .options-container { 
+  height: 12em;
+}
+
+.line .options-container table { 
+  width: 100%;
+}
+
+.line .options-container table caption { 
+  margin: 0 0 0.5em 0;
+  text-align: left;
+}
+
+
+.line .options-container table th,
+.line .options-container table td { 
+  text-align: center;
+}
+
+.line .controls { 
+  text-align: center;
+}
+
+.line .last-update { 
+  margin: 1em 0 0 0;
+  font-size: smaller;
+  text-align: right;
+}

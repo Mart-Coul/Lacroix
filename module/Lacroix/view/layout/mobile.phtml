@@ -1,0 +1,43 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- This viewport variable is to adjust how the screens are displayed on mobile devices. This is done because the report progress and forms are optimzed for mobile while the
+       other screens aren't optimized. Therfore for non-optimized screen, they are zoom out on mobile devices.
+  -->
+  <?php echo $this->headTitle($this->translate('Lacroix')) ?>
+  <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+  <?php $this->poLink(); ?>
+  <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+   ->prependStylesheet($this->basePath() . '/css/lib/bootstrap-responsive.min.css', 'print,screen')
+   ->prependStylesheet($this->basePath() . '/css/application.css', 'print,screen')
+   ->prependStylesheet('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css', 'print,screen')
+   ->prependStylesheet($this->basePath() . '/css/lib/font-awesome.min.css', 'print,screen')
+   ->prependStylesheet($this->basePath() . '/css/lib/bootstrap.min.css', 'print,screen')
+ ?>
+   <?php echo $this->headScript()->prependFile($this->basePath() . '/js/lib/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+   ->prependFile($this->basePath() . '/js/application.js')
+   ->prependFile($this->basePath() . '/js/lib/Gettext.js')
+   ->prependFile($this->basePath() . '/js/lib/backbone-min.js')
+   ->prependFile($this->basePath() . '/js/lib/underscore-min.js')
+   ->prependFile($this->basePath() . '/js/lib/bootstrap.min.js')
+   ->prependFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
+   ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
+   ?>
+</head>
+
+<body class="layout-normal">
+  <div class="container">
+     <div class="row noPrint"><div class="span12"><?=$this->partial('elements/navbar-mobile'); ?></div></div>
+
+     <div class="row"><div class="span12"><?=$this->partial('elements/alerts', array('sources' => $this->viewModel()->getCurrent()->getChildren())); ?></div></div>
+     <?=$this->partial('elements/modal-alerts', array('sources' => $this->viewModel()->getCurrent()->getChildren())); ?>
+  </div>
+
+  <div class="container">
+    <?=$this->content; ?>
+  </div>
+
+  <?=$this->inlineScript(); ?>
+</body>
+</html>

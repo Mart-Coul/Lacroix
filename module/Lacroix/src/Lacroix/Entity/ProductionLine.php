@@ -59,6 +59,11 @@ class ProductionLine {
     return $reading ? $reading->getProductName() : $this->getTranslator()->translate('N/A');
   }
 
+  public function getLastProductId() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getProductId() : null;
+  }
+
   public function getLastEmployees() {
     $reading = $this->getLastReading();
     return $reading ? $reading->getEmployees() : $this->getTranslator()->translate('N/A');
@@ -67,6 +72,23 @@ class ProductionLine {
   public function getLastSpeed() {
     $reading = $this->getLastReading();
     return $reading ? $reading->getSpeed() : $this->getTranslator()->translate('N/A');
+  }
+
+  public function getLastTargetProductivity() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getTargetProductivity() : -1;
+  }
+
+  public function getStatusClass() {
+    if ($this->getLastSpeed() > $this->getLastTargetProductivity()) {
+      return 'ok';
+    };
+
+    if ($this->getLastSpeed() >= $this->getLastTargetProductivity() * 0.95) {
+      return 'warning';
+    };
+
+    return 'bad';
   }
 
   public function getLastUpdateTime($format) {
@@ -88,8 +110,8 @@ class ProductionLine {
 
     return array(array('motor' => $reading->getReading() + 1,
                        'result' => $reading->estimateSpeed($reading->getReading() + 1)),
-                 array('motor' => $reading->getReading() + 2,
-                       'result' => $reading->estimateSpeed($reading->getReading() + 2)));
+                 array('motor' => $reading->getReading() + 3,
+                       'result' => $reading->estimateSpeed($reading->getReading() + 3)));
   }
 
   /*

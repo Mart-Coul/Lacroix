@@ -1,8 +1,8 @@
 <?php foreach ($lines as $line): ?>
-<div class="line">
+<div class="line-container"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
    <div class="name"><?=$this->escapeHtml($line->getName())?></div>
 
-   <dl class="last-reading">
+   <dl class="last-reading clearfix">
      <dt><?=$this->escapeHtml($this->translate('Production'));?></dt>
      <dd><?=$this->escapeHtml($line->getLastProductName())?></dd>
 
@@ -13,8 +13,9 @@
      <dd><?=$this->escapeHtml($line->getLastSpeed())?></dd>
    </dl>
 
+   <div class="options-container">
    <?php if ($line->getProductivityOptions()): ?>
-   <table>
+   <table class="table table-striped">
      <caption><?=$this->escapeHtml($this->translate('Proposition to increase'))?></caption>
 
      <thead> 
@@ -34,12 +35,29 @@
      </tbody>
    </table>
    <?php endif; ?>
+   </div>
 
-   <a href="javascript: void()" class="btn btn-large"><?=$this->escapeHtml($this->translate('Add a new reading'))?></a>
+   <div class="controls">
+     <a href="#reading-modal" role="button" class="btn-add btn btn-large" data-toggle="modal"><?=$this->escapeHtml($this->translate('Add a new reading'))?></a>
+   </div>
 
    <div class="last-update"> 
      <?=$this->escapeHtml($this->translate('Last update at:')); ?>
      <?=$line->getLastUpdateTime('m/d/Y H:i:s'); ?>
    </div>
-</div>
+</div></div>
 <?php endforeach; ?>
+
+<div id="reading-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="reading-modal-label" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="reading-modal-label">Add a new reading</h3>
+  </div>
+  <div class="modal-body">
+    <?=$this->bootstrap()->form($reading_form)?>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary btn-save">Save changes</button>
+  </div>
+</div>

@@ -15,6 +15,14 @@ class NavbarMobile extends Navbar {
   }
 
   public function items() {
+    $user = $this->auth->getIdentity();
+
+    if (!$user) {
+      return array(array('text' => $this->view->translate('Login'),
+                         'url' => $this->router->assemble(array('controller' => 'user', 'action' => 'login'),
+                                                          array('name' => 'users/login'))));
+    };
+
     $links = array();
 
     foreach ($this->em->getRepository('Lacroix\Entity\Room')->findAll() as $item) {

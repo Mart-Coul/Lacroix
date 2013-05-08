@@ -25,8 +25,14 @@ class Reading extends Form {
     $employees = new \Zend\Form\Element\Text('employees');
     $employees->setLabel($t->translate('Employees'));
 
-    $notes = new \Zend\Form\Element\Text('notes');
+    $notes = new \Zend\Form\Element\Select('notes');
     $notes->setLabel($t->translate('Notes'));
+
+    $options = array('' => '');
+    foreach ($em->getRepository('Lacroix\Entity\NoteTemplate')->findAll() as $item) {
+      $options[$item->getContent()] = $item->getContent();
+    };
+    $notes->setValueOptions($options);
 
     // ---
 

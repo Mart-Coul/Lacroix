@@ -22,7 +22,7 @@ class DataEntry {
   protected $created_at;
 
   /**
-   * @ORM\Column(type="integer")
+   * @ORM\Column(type="float")
    */
   protected $reading;
 

@@ -4,7 +4,7 @@ return
 
 array(
   'factories' => array(
-    'navbar' => function($sm) { 
+    'navbar_mobile' => function($sm) { 
       return new Lacroix\View\Helper\NavbarMobile($sm); 
     },
   )

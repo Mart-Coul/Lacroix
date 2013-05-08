@@ -5,6 +5,8 @@ use \Zend\View\Model\ViewModel;
 use \Main\Controller\ApplicationController;
 
 class MobileController extends ApplicationController {
+  public $default_layout = 'layout/mobile';
+
   public function indexAction() {
     $view = new ViewModel(array('lines' => $this->getEntityManager()->getRepository('Lacroix\Entity\ProductionLine')->findAll(),
                                 'reading_form' => $this->getReadingForm()));

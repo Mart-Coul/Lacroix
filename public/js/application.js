@@ -25,7 +25,9 @@ $(function() {
     .on("click",
         function() {
           var line = $(this).closest(".line");
-
+		  
+		  $("#reading-modal #reading-modal-label").html("Add a new reading - Line " + line.data("line-name"));
+		  
           $("#reading-modal")
             .data("line-id", 
                   line.data("line-id"))

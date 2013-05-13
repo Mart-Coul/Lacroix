@@ -83,14 +83,14 @@ class Navbar extends AbstractHelper {
     $user = $this->auth->getIdentity();
 
     foreach (array(
+    			   array('text' => $this->view->translate('Data entry'),
+                         'controller' => 'mobile',
+                         'action' => 'index',
+                         'route' => 'mobile'),
                    array('text' => $this->view->translate('Configuration'),
                          'controller' => 'configuration',
                          'action' => 'index',
-                         'route' => 'configuration'),
-                   array('text' => $this->view->translate('Data entry'),
-                         'controller' => 'mobile',
-                         'action' => 'index',
-                         'route' => 'mobile')
+                         'route' => 'configuration')
                    ) as $item) {
 
       if ($user->isAllowed($this->acl, 

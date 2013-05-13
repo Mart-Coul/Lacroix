@@ -2,6 +2,36 @@ body {
   padding-top: 60px;
 }
 
+#layout-navbar .nav { 
+  padding: 14px 0;
+}
+
+#layout-navbar .nav li { 
+  border-left: solid 2px #FF1235;
+}
+
+#layout-navbar .nav li:first-child { 
+  border-style:none;
+}
+
+#layout-navbar .nav a { 
+  padding: 0.1em 1em 0.1em 1em;
+  margin-left: 0em;
+  
+  font-size: 0.95em;
+  text-transform: uppercase;
+
+  background: none;
+  box-shadow: none;
+  filter: none;
+
+  line-height: 1em;
+}
+
+#layout-navbar .nav .active a { 
+  color: #FF1235;
+}
+
 .table-data td { 
   vertical-align: middle;
 }
@@ -17,35 +47,93 @@ body {
 
 .line-container { 
   float: left;
-  width: 50%;
+  /*width: 50%;*/
+  width: 25em;
   max-width: 25em;
 }
 
 .line { 
   margin: 1em;
-  padding: 1em 2.5em;
-  border-radius: 3px;
+  padding: 1em 1.5em;
+  border-radius: 7px;
 }
 
 .line.ok { 
-  border: solid green 1px;
+  border: solid rgba(0, 128, 0, .5) 8px;
 }
 
 .line.warning { 
-  border: solid yellow 1px;
+  border: solid yellow 8px;
 }
 
 .line.bad { 
-  border: solid red 1px;
+  border: solid rgba(255, 18, 53, 1) 8px;
 }
 
 .line .name { 
-  margin: 0.5em auto 1em;
+  margin: 0em auto 0.5em;
 
   font-weight: bold;
   font-size: 3em;
   text-align: center;
 }
+
+.line hr {
+  margin: 0 0 2em;
+}
+
+.line table {
+  margin-bottom: 1.5em;
+}
+
+.line table#main-metrics {
+  width: 20em;
+}
+
+.line table#main-metrics th.value {
+  font-weight: bold;
+  font-size: 3em;
+  text-align: left;
+  color: #51CDEE;
+}
+
+.line table#main-metrics td.value-label {
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 2em;
+  text-align: left;
+  color: #51CDEE;
+  
+  text-transform:uppercase;
+}
+
+.line table#main-metrics td.value-label:last-child,
+.line table#main-metrics th.value:last-child {
+  text-align: right;
+}
+
+.line table#secondary-metrics {
+  width: 20em;
+}
+
+.line table#secondary-metrics th.value {
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  width: 33%;
+  color: #8C9DBB;
+}
+
+.line table#secondary-metrics td.value-label {
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 1.5em;
+  text-align: center;
+  color: #8C9DBB;
+  
+}
+
+
 
 .line dl.last-reading dt { 
   margin: 0 0 1em 0;
@@ -88,6 +176,6 @@ body {
 
 .line .last-update { 
   margin: 1em 0 0 0;
-  font-size: smaller;
+  font-size: 13px;
   text-align: right;
 }

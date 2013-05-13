@@ -1,0 +1,314 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.0.1\n"
+"POT-Creation-Date: 2013-05-10 22:53-0500\n"
+"PO-Revision-Date: 2013-05-10 23:05-0500\n"
+"Last-Translator: Martin Coulombe <mart.coulombe@gmail.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;translate;_c:1c,2;_n:1,2;_p;_cn:1c,2,3;_cp:1c,2;"
+"_np:1,2;_cnp:1c,2,3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../templates\n"
+"X-Poedit-SearchPath-1: ../../module/Lacroix\n"
+"X-Poedit-SearchPath-2: ../js\n"
+"X-Poedit-SearchPath-3: ../../module/Main\n"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ConfigurationController.php:7
+#: ../../module/Main/src/Main/View/Helper/Navbar.php:86
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/NoteTemplatesController.php:11
+msgid "Generic comments"
+msgstr "Commentaires"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/NoteTemplatesController.php:18
+msgid "New comment"
+msgstr "Ajouter un commentaire"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/NoteTemplatesController.php:25
+msgid "Edit comment"
+msgstr "Modifier un commentaire"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/NoteTemplatesController.php:32
+msgid "Delete comment"
+msgstr "Supprimer un commentaire"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductionLinesController.php:11
+msgid "Production lines"
+msgstr "Lignes de production"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductionLinesController.php:18
+msgid "New production line"
+msgstr "Ajouter une ligne de production"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductionLinesController.php:25
+msgid "Edit production line"
+msgstr "Modifier une ligne de production"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductionLinesController.php:32
+msgid "Delete production line"
+msgstr "Supprimer une ligne de production"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductsController.php:11
+#: ../../module/Lacroix/view/elements/sidebar.phtml:3
+msgid "Products"
+msgstr "Produits"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductsController.php:18
+msgid "New product"
+msgstr "Ajouter un produit"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductsController.php:25
+msgid "Edit product"
+msgstr "Modifier un produit"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/ProductsController.php:32
+msgid "Delete product"
+msgstr "Supprimer un produit"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/RoomsController.php:11
+#: ../../module/Lacroix/view/elements/sidebar.phtml:5
+msgid "Rooms"
+msgstr "Salles"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/RoomsController.php:18
+msgid "New room"
+msgstr "Ajouter une salle"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/RoomsController.php:25
+msgid "Edit room"
+msgstr "Modifier une salle"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/RoomsController.php:32
+msgid "Delete room"
+msgstr "Supprimer une salle"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/UsersController.php:11
+#: ../../module/Lacroix/view/elements/sidebar.phtml:6
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/UsersController.php:18
+msgid "New user"
+msgstr "Créer un utilisateur"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/UsersController.php:25
+msgid "Edit user"
+msgstr "Modifier un utilisateur"
+
+#: ../../module/Lacroix/src/Lacroix/Controller/UsersController.php:32
+msgid "Delete user"
+msgstr "Supprimer un utilisateur"
+
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:59
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:69
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:74
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:97
+msgid "N/A"
+msgstr "N/A"
+
+#: ../../module/Lacroix/src/Lacroix/Form/NoteTemplate.php:20
+#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:4
+msgid "Content"
+msgstr "Contenu"
+
+#: ../../module/Lacroix/src/Lacroix/Form/NoteTemplate.php:27
+#: ../../module/Lacroix/src/Lacroix/Form/Product.php:30
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:39
+#: ../../module/Lacroix/src/Lacroix/Form/Room.php:27
+#: ../../module/Lacroix/src/Lacroix/Form/User.php:36
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: ../../module/Lacroix/src/Lacroix/Form/Product.php:20
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:20
+#: ../../module/Lacroix/src/Lacroix/Form/Room.php:20
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:4
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:4
+#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:4
+msgid "Name"
+msgstr "Nom"
+
+#: ../../module/Lacroix/src/Lacroix/Form/Product.php:23
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:5
+msgid "Target productivity"
+msgstr "Objectif"
+
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:23
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:5
+msgid "Speed adjustment"
+msgstr "Calcul d'ajustement"
+
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:26
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:6
+msgid "Room"
+msgstr "Salle"
+
+#: ../../module/Lacroix/src/Lacroix/Form/Reading.php:14
+msgid "Product"
+msgstr "Produit"
+
+#: ../../module/Lacroix/src/Lacroix/Form/Reading.php:23
+msgid "Reading"
+msgstr "Lecture"
+
+#: ../../module/Lacroix/src/Lacroix/Form/Reading.php:26
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:9
+msgid "Employees"
+msgstr "Employés"
+
+#: ../../module/Lacroix/src/Lacroix/Form/Reading.php:29
+msgid "Notes"
+msgstr "Commentaires"
+
+#: ../../module/Lacroix/src/Lacroix/Form/User.php:20
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:4
+msgid "Username"
+msgstr "Utilisateur"
+
+#: ../../module/Lacroix/src/Lacroix/Form/User.php:23
+msgid "Password"
+msgstr "Mot de passe"
+
+#: ../../module/Lacroix/src/Lacroix/Form/User.php:26
+msgid "Is admin"
+msgstr "Is admin"
+
+#: ../../module/Lacroix/src/Lacroix/Form/User.php:29
+msgid "Is production staff"
+msgstr "Is production staff"
+
+#: ../../module/Lacroix/src/Lacroix/View/Helper/NavbarMobile.php:21
+#: ../../module/Main/src/Main/Form/Login.php:34
+#: ../../module/Main/src/Main/View/Helper/Navbar.php:78
+msgid "Login"
+msgstr "Connexion"
+
+#: ../../module/Lacroix/src/Lacroix/View/Helper/NavbarMobile.php:29
+#, php-format
+msgid "Room %s"
+msgstr "Salle %s"
+
+#: ../../module/Lacroix/src/Lacroix/View/Helper/NavbarMobile.php:33
+msgid "All rooms"
+msgstr "Toutes les salles"
+
+#: ../../module/Main/src/Main/Controller/UsersController.php:55
+msgid "You've been logged out"
+msgstr "Vous avez été déconnecté"
+
+#: ../../module/Main/src/Main/Entity/UserRole.php:36
+msgid "Admin"
+msgstr "Admin"
+
+#: ../../module/Main/src/Main/Entity/UserRole.php:37
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:6
+msgid "Production"
+msgstr "Production"
+
+#: ../../module/Main/src/Main/Form/GenericDelete.php:24
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:19
+#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:17
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:21
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:19
+#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:17
+msgid "Delete"
+msgstr "Supprimer"
+
+#: ../../module/Main/src/Main/Form/Login.php:21
+msgid "Your username"
+msgstr "Utilisateur"
+
+#: ../../module/Main/src/Main/Form/Login.php:24
+msgid "Your password"
+msgstr "Mot de passe"
+
+#: ../../module/Main/src/Main/Form/Login.php:27
+msgid "Remember me"
+msgstr "Garder ma session active"
+
+#: ../../module/Main/src/Main/View/Helper/Bootstrap.php:62
+#: ../../module/Main/src/Main/View/Helper/Bootstrap.php:100
+msgid "No"
+msgstr "Non"
+
+#: ../../module/Main/src/Main/View/Helper/Bootstrap.php:66
+#: ../../module/Main/src/Main/View/Helper/Bootstrap.php:104
+msgid "Yes"
+msgstr "Oui"
+
+#: ../../module/Main/src/Main/View/Helper/Navbar.php:90
+msgid "Data entry"
+msgstr "Lectures"
+
+#: ../../module/Lacroix/view/elements/sidebar.phtml:2
+msgid "Production Lines"
+msgstr "Lignes de productions"
+
+#: ../../module/Lacroix/view/elements/sidebar.phtml:4
+msgid "Generic Commens"
+msgstr "Commentaires"
+
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:5
+msgid "Roles"
+msgstr "Rôles"
+
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:7
+#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:6
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:8
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:7
+#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:6
+msgid "Create"
+msgstr "Ajouter"
+
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:18
+#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:16
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:20
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:18
+#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:16
+msgid "Edit"
+msgstr "Modifier"
+
+#: ../../module/Lacroix/view/lacroix/configuration/index.phtml:1
+msgid "Please select a category to configure"
+msgstr "Choisir une catégorie à configurer"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:12
+msgid "Speed"
+msgstr "Vitesse"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:19
+msgid "Proposition to increase"
+msgstr "Hypothèse de vitesse"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:23
+msgid "Motor"
+msgstr "Moteur"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:24
+msgid "Result"
+msgstr "Résultat"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:41
+msgid "Add a new reading"
+msgstr "Ajouter une lecture"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:45
+msgid "Last update at:"
+msgstr "Dernière mise à jour le:"
+
+#: ../../module/Lacroix/view/layout/mobile.phtml:8
+msgid "Lacroix"
+msgstr "Lacroix"
+
+#: ../js/application.js:14
+msgid "Unhandled server error"
+msgstr "Erreur technique du serveur"

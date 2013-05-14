@@ -193,3 +193,7 @@ body {
   font-size: 13px;
   text-align: right;
 }
+
+.icon-comment.comments-popover { 
+  cursor: pointer;
+}

@@ -6,14 +6,21 @@
    <table id="main-metrics" class="">
      <thead> 
        <tr>
-         <th class="value"><?=$this->escapeHtml($line->getLastMainMetric())?></th>
+         <th class="value">
+           <?=$this->escapeHtml($line->getLastMainMetric())?>
+         </th>
          <th class="value"><?=$this->escapeHtml($line->getLastTargetProductivity())?></th>
        </tr>
      </thead>
 
      <tbody>
          <tr>
-           <td class="value-label"><?=$this->escapeHtml($this->translate('Actual'));?></td>
+           <td class="value-label">
+             <?=$this->escapeHtml($this->translate('Actual'));?>
+             <?php if ($line->getLastNotes()): ?>
+               <i class="icon-comment comments-popover" data-toggle="popover" data-content="<?=$this->escapeHtml($line->getLastNotes())?>" title="Notes"></i>
+             <?php endif; ?>
+           </td>
            <td class="value-label"><?=$this->escapeHtml($this->translate('Target'));?></td>
          </tr>
      </tbody>

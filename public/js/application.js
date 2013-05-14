@@ -63,4 +63,6 @@ $(function() {
 
           buttons.addClass("disabled");
         });
+
+  $(".icon-comment[data-toggle='popover']").popover();
 });

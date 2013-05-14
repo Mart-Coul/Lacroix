@@ -59,6 +59,11 @@ class ProductionLine {
     return $reading ? $reading->getProductName() : $this->getTranslator()->translate('N/A');
   }
 
+  public function getLastNotes() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getNotes() : null;
+  }
+
   public function getLastProductId() {
     $reading = $this->getLastReading();
     return $reading ? $reading->getProductId() : null;

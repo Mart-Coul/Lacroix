@@ -36,7 +36,8 @@ class Authentication {
     $event->setError('acl');
 
     $response = $event->getResponse();
-    $response->setStatusCode(404);
+    $response->setStatusCode(302);
+    $response->getHeaders()->addHeaders(array('Location' => '/users/login'));
   }
 }
 

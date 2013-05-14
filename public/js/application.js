@@ -26,29 +26,36 @@ $(function() {
         function() {
           var line = $(this).closest(".line");
 		  
-		  $("#reading-modal #reading-modal-label").html("Add a new reading - Line " + line.data("line-name"));
+		      $("#reading-modal #reading-modal-label").html("Add a new reading - Line " + line.data("line-name"));
 		  
           $("#reading-modal")
             .data("line-id", 
-                  line.data("line-id"))
-            .find(":input[name='product_id']").val(line.data("product-id"));
+                  line.data("line-id"));
           ;
         });
 
   $("#reading-modal")
     .on("click",
-        " .btn-save:not(.disabled)",
+        ".btn-save:not(.disabled)",
         function() {
           var modal = $(this).closest(".modal");
           var line_id = modal.data("line-id");
           var buttons = modal.find(".modal-footer .btn");
+
+          var product_id = modal.find(":input[name='product_id']").val();
+
+          modal.find(".error").removeClass("error");
+          if (!product_id) {
+            modal.find(":input[name='product_id']").closest(".control-group").addClass("error");
+            return;
+          };
           
           $.post(BASE_URL + "/mobile/line/" + line_id + "/readings",
                  {
                    reading: modal.find(":input[name='reading']").val(),
                    employees: modal.find(":input[name='employees']").val(),
                    notes: modal.find(":input[name='notes']").val(),
-                   product_id: modal.find(":input[name='product_id']").val()
+                   product_id: product_id
                  })
             .done(function() {
               document.location.reload();

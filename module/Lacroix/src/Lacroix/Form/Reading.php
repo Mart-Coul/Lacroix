@@ -13,11 +13,12 @@ class Reading extends Form {
     $product = new \Zend\Form\Element\Select('product_id');
     $product->setLabel($t->translate('Product'));
 
-    $options = array();
+    $options = array('' => '');
     foreach ($em->getRepository('Lacroix\Entity\Product')->findAll() as $item) {
       $options[$item->getId()] = $item->getName();
     };
-    $product->setValueOptions($options);
+    $product
+      ->setValueOptions($options);
 
     $reading = new \Zend\Form\Element\Text('reading');
     $reading->setLabel($t->translate('Reading'));

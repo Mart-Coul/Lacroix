@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.1\n"
-"POT-Creation-Date: 2013-05-10 22:53-0500\n"
-"PO-Revision-Date: 2013-05-10 23:05-0500\n"
+"POT-Creation-Date: 2013-05-13 20:51-0500\n"
+"PO-Revision-Date: 2013-05-13 21:05-0500\n"
 "Last-Translator: Martin Coulombe <mart.coulombe@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-3: ../../module/Main\n"
 
 #: ../../module/Lacroix/src/Lacroix/Controller/ConfigurationController.php:7
-#: ../../module/Main/src/Main/View/Helper/Navbar.php:86
+#: ../../module/Main/src/Main/View/Helper/Navbar.php:90
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -161,7 +161,7 @@ msgid "Reading"
 msgstr "Lecture"
 
 #: ../../module/Lacroix/src/Lacroix/Form/Reading.php:26
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:9
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:46
 msgid "Employees"
 msgstr "Employés"
 
@@ -210,7 +210,7 @@ msgid "Admin"
 msgstr "Admin"
 
 #: ../../module/Main/src/Main/Entity/UserRole.php:37
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:6
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:43
 msgid "Production"
 msgstr "Production"
 
@@ -245,7 +245,7 @@ msgstr "Non"
 msgid "Yes"
 msgstr "Oui"
 
-#: ../../module/Main/src/Main/View/Helper/Navbar.php:90
+#: ../../module/Main/src/Main/View/Helper/Navbar.php:86
 msgid "Data entry"
 msgstr "Lectures"
 
@@ -281,29 +281,52 @@ msgstr "Modifier"
 msgid "Please select a category to configure"
 msgstr "Choisir une catégorie à configurer"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:12
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:5
+msgid "Kebab / Pers. / Hour"
+msgstr "Bro. / Pers. / Heure"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:16
+msgid "Actual"
+msgstr "Actuel"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:17
+msgid "Target"
+msgstr "Objectif"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:49
 msgid "Speed"
 msgstr "Vitesse"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:19
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:57
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:91
 msgid "Proposition to increase"
-msgstr "Hypothèse de vitesse"
+msgstr "Recommandations"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:23
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:61
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:99
 msgid "Motor"
 msgstr "Moteur"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:24
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:62
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:100
 msgid "Result"
 msgstr "Résultat"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:41
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:79
+msgid "Add reading"
+msgstr "Ajouter lecture"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:80
+msgid "Recommendations"
+msgstr "Recommandations"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:84
+msgid "Last update at:"
+msgstr "Mise à jour:"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:127
 msgid "Add a new reading"
 msgstr "Ajouter une lecture"
-
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:45
-msgid "Last update at:"
-msgstr "Dernière mise à jour le:"
 
 #: ../../module/Lacroix/view/layout/mobile.phtml:8
 msgid "Lacroix"

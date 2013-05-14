@@ -27,6 +27,11 @@ class Product {
    */
   protected $target_productivity;
 
+  /**
+   * @ORM\Column(type="float")
+   */
+  protected $star_percent;
+
   /*
    * Misc getters / setters
    */
@@ -43,6 +48,10 @@ class Product {
     return $this->target_productivity;
   }
 
+  public function getStarPercent() {
+    return $this->star_percent;
+  }
+
   public function setName($value) {
     $this->name = $value;
     return $this;
@@ -50,6 +59,11 @@ class Product {
 
   public function setTargetProductivity($value) {
     $this->target_productivity = $value;
+    return $this;
+  }
+
+  public function setStarPercent($value) {
+    $this->star_percent = $value;
     return $this;
   }
 }

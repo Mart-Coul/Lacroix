@@ -76,6 +76,15 @@ class DataEntry {
     return $this->getProduct()->getTargetProductivity();
   }
 
+  public function getNumStars() {
+    $over = $this->getSpeed() / $this->getTargetProductivity() - 1;
+    if ($over < 0) {
+      return 0;
+    }
+
+    return floor($over * 100 / $this->getProduct()->getStarPercent());
+  }
+
   /*
    * Misc getters / setters
    */

@@ -1,0 +1,1 @@
+ALTER TABLE products ADD COLUMN star_percent DECIMAL(10, 2) NOT NULL DEFAULT 10;

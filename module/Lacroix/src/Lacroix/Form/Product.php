@@ -22,6 +22,9 @@ class Product extends Form {
     $target_productivity = new \Zend\Form\Element\Text('target_productivity');
     $target_productivity->setLabel($t->translate('Target productivity'));
 
+    $star_percent = new \Zend\Form\Element\Text('star_percent');
+    $star_percent->setLabel($t->translate('% / star'));
+
     // ---
 
     $csrf = new \Zend\Form\Element\Csrf('security');
@@ -33,6 +36,7 @@ class Product extends Form {
 
     $this->add($name);
     $this->add($target_productivity);
+    $this->add($star_percent);
 
     $this->add($csrf);
     $this->add($ok);
@@ -44,7 +48,13 @@ class Product extends Form {
                                                 'validators' => array(array('name' => 'Int'),
                                                                       array('name' => 'Between',
                                                                             'min' => 0,
-                                                                            'max' => 9999))));
+                                                                            'max' => 9999))),
+                 'star_percent' => array('required' => true,
+                                         'validators' => array(array('name' => 'Float'),
+                                                               array('name' => 'Between',
+                                                                     'min' => 1,
+                                                                     'max' => 100))),
+                 );
   }
 
   public function createEntity($em) {
@@ -56,12 +66,14 @@ class Product extends Form {
 
     return $item
       ->setName($data['name'])
-      ->setTargetProductivity($data['target_productivity']);
+      ->setTargetProductivity($data['target_productivity'])
+      ->setStarPercent($data['star_percent']);
   }
 
   public function loadEntity(\Lacroix\Entity\Product $item) {
     $this->setData(array('name' => $item->getName(),
-                         'target_productivity' => $item->getTargetProductivity()));
+                         'target_productivity' => $item->getTargetProductivity(),
+                         'star_percent' => $item->getStarPercent()));
 
     return $this;
   }

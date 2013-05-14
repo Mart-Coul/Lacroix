@@ -3,6 +3,7 @@
     <tr>
       <th><?=$this->escapeHtml($this->translate('Name'))?></th>
       <th><?=$this->escapeHtml($this->translate('Target productivity'))?></th>
+      <th><?=$this->escapeHtml($this->translate('% / star'))?></th>
       <th class="actions">
         <a class="btn" href="<?=$this->escapeHtml($this->url('products/new'))?>" title="<?=$this->escapeHtml($this->translate('Create'))?>"><i class="icon icon-plus"></i></a>
       </th>
@@ -14,6 +15,7 @@
     <tr>
       <td><?=$this->escapeHtml($item->getName())?></td>
       <td><?=$this->escapeHtml($item->getTargetProductivity())?></td>
+      <td><?=$this->escapeHtml($item->getStarPercent())?></td>
       <td class="actions">
         <a class="btn" href="<?=$this->escapeHtml($this->url('products/edit', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Edit'))?>"><i class="icon icon-pencil"></i></a>
         <a class="btn btn-danger" href="<?=$this->escapeHtml($this->url('products/delete', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Delete'))?>"><i class="icon icon-trash"></i></a>

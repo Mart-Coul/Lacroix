@@ -53,6 +53,7 @@ body {
 }
 
 .line { 
+  position: relative;
   margin: 1em;
   padding: 1em 1.5em;
   border-radius: 7px;
@@ -196,4 +197,13 @@ body {
 
 .icon-comment.comments-popover { 
   cursor: pointer;
+}
+
+.line .stars { 
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 80px;
+
+  color: gold;
 }

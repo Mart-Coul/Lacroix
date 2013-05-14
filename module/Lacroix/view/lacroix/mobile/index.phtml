@@ -1,5 +1,11 @@
 <?php foreach ($lines as $line): ?>
 <div class="line-container"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-name="<?=$this->escapeHtml($line->getName())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
+   <div class="stars">
+     <?php for ($i = 0; $i < $line->getLastStars(); $i++): ?>
+     <i class="icon-star"></i>
+     <?php endfor; ?>
+   </div>
+
    <div class="name"><?=$this->escapeHtml($line->getName())?></div>
    <hr>
    <h4 class="title-main-metric"><?=$this->escapeHtml($this->translate('Kebab / Pers. / Hour'));?></h4>

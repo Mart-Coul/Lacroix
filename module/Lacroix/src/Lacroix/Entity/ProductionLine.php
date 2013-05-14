@@ -64,6 +64,11 @@ class ProductionLine {
     return $reading ? $reading->getNotes() : null;
   }
 
+  public function getLastStars() {
+    $reading = $this->getLastReading();
+    return $reading ? $reading->getNumStars() : null;
+  }
+
   public function getLastProductId() {
     $reading = $this->getLastReading();
     return $reading ? $reading->getProductId() : null;

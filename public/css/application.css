@@ -207,3 +207,35 @@ body {
 
   color: gold;
 }
+
+.table.report td { 
+  vertical-align: middle;
+}
+
+.table.report .toggle {  
+  width: 10px;
+}
+
+.table.report .accordion-group { 
+  border: none;
+}
+
+.table.report tbody .bad td { 
+  background: red;
+}
+
+.table.report tbody .good td { 
+  background: green;
+}
+
+.table.report tbody .warning td { 
+  background: yellow;
+}
+
+.table.report .collapsible-details td { 
+  padding: 0;
+}
+
+.table.report .collapsible-details td .accordion-body { 
+}
+

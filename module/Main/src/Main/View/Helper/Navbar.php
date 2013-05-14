@@ -83,10 +83,14 @@ class Navbar extends AbstractHelper {
     $user = $this->auth->getIdentity();
 
     foreach (array(
-    			   array('text' => $this->view->translate('Data entry'),
+                   array('text' => $this->view->translate('Data entry'),
                          'controller' => 'mobile',
                          'action' => 'index',
                          'route' => 'mobile'),
+                   array('text' => $this->view->translate('Statistics'),
+                         'controller' => 'mobile',
+                         'action' => 'statistics',
+                         'route' => 'statistics'),
                    array('text' => $this->view->translate('Configuration'),
                          'controller' => 'configuration',
                          'action' => 'index',

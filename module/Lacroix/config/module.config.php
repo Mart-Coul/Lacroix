@@ -9,6 +9,7 @@ return array('controllers' => array('invokables' => array('Lacroix\Controller\Pr
                                                           'Lacroix\Controller\DataEntries' => 'Lacroix\Controller\DataEntriesController',
                                                           'Lacroix\Controller\Users' => 'Lacroix\Controller\UsersController',
                                                           'Lacroix\Controller\Mobile' => 'Lacroix\Controller\MobileController',
+                                                          'Lacroix\Controller\Statistics' => 'Lacroix\Controller\StatisticsController',
                                                           'Lacroix\Controller\Configuration' => 'Lacroix\Controller\ConfigurationController',
                                                           
                                                           ),

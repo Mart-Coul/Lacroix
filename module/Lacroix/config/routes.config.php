@@ -209,4 +209,20 @@ array(
       ),
     ),
   ),
+
+  'statistics' => array(
+    'type' => 'Segment',
+    'options' => array(
+      'route' => '/statistics',
+      'defaults' => array(
+        '__NAMESPACE__' => 'Lacroix\Controller',
+        'controller' => 'Statistics',
+        'action' => 'index'
+      ),
+    ),
+
+    'may_terminate' => true,
+    'child_routes' => array(
+    ),
+  ),
 );

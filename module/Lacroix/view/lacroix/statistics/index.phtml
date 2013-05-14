@@ -1,0 +1,36 @@
+<table class="table report">
+<tbody> 
+   <?php foreach ($lines as $line): ?>
+   <?php $uid = sprintf('accordion-%s', md5(uniqid())); ?>
+
+   <tr class="<?=$this->escapeHtml($line->getStatusClass())?>">
+     <td class="toggle">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" href="#<?=$uid?>">
+              <i class="plus icon-plus"></i>
+            </a>
+          </div>
+        </div>
+      </td>
+      <td><?=$this->escapeHtml($line->getName())?></td>
+      <td><?=$this->escapeHtml($line->getLastMainMetric())?></td>
+      <td><?=$this->escapeHtml($line->getLastTargetProductivity())?></td>
+    </tr>
+    <tr class="collapsible-details">
+      <td colspan="4">
+        <div id="<?=$uid?>" class="accordion-body collapse">
+          <div class="accordion-inner">
+
+            <div class="last-update"> 
+              <?=$this->escapeHtml($this->translate('Last update at:')); ?>
+              <?=$line->getLastUpdateTime('m/d/Y H:i'); ?>
+            </div>
+          
+          </div>
+        </div>
+      </td>
+    </tr>
+   <?php endforeach; ?>
+</tbody>
+</table>

@@ -2,19 +2,19 @@
 <div class="line-container"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-name="<?=$this->escapeHtml($line->getName())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
    <div class="name"><?=$this->escapeHtml($line->getName())?></div>
    <hr>
-
+   <h4 class="title-main-metric"><?=$this->escapeHtml($this->translate('Kebab / Pers. / Hour'));?></h4>
    <table id="main-metrics" class="">
      <thead> 
        <tr>
+         <th class="value"><?=$this->escapeHtml($line->getLastMainMetric())?></th>
          <th class="value"><?=$this->escapeHtml($line->getLastTargetProductivity())?></th>
-         <th class="value"><?=$this->escapeHtml($line->getLastSpeed())?></th>
        </tr>
      </thead>
 
      <tbody>
          <tr>
-           <td class="value-label"><?=$this->escapeHtml($this->translate('Objectif'));?></td>
-           <td class="value-label"><?=$this->escapeHtml($this->translate('Actuel'));?></td>
+           <td class="value-label"><?=$this->escapeHtml($this->translate('Actual'));?></td>
+           <td class="value-label"><?=$this->escapeHtml($this->translate('Target'));?></td>
          </tr>
      </tbody>
    </table>
@@ -24,7 +24,7 @@
        <tr>
          <th class="value"><i class="icon-tag icon-large"></i></th>
          <th class="value"><i class="icon-group icon-large"></i></th>
-         <th class="value"><i class="icon-plane icon-large"></i></th>
+         <th class="value-no-icon">V</th> <!-- There are no font awesome icon for speed, therefore we use V that is the first letter for Vitesse which is speed in french. -->
        </tr>
      </thead>
 
@@ -76,8 +76,8 @@
    </div>
 -->
    <div class="controls">
-     <a href="#reading-modal" role="button" class="btn-add btn btn-medium" data-toggle="modal"><?=$this->escapeHtml($this->translate('Add a new reading'))?></a>
-     <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-medium" data-toggle="modal"><?=$this->escapeHtml($this->translate('Hypothèses'))?></a>
+     <a href="#reading-modal" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Add reading'))?></a>
+     <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Recommendations'))?></a>
    </div>
 
    <div class="last-update"> 

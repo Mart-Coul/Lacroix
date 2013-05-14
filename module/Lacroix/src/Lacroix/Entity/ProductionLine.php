@@ -78,6 +78,11 @@ class ProductionLine {
     $reading = $this->getLastReading();
     return $reading ? $reading->getTargetProductivity() : -1;
   }
+  
+public function getLastMainMetric() {
+    $reading = $this->getLastReading();
+    return $reading ? number_format(round($reading->estimateSpeed($reading->getReading()), 1),1) : $this->getTranslator()->translate('N/A');
+  }
 
   public function getStatusClass() {
     if ($this->getLastSpeed() > $this->getLastTargetProductivity()) {
@@ -104,7 +109,7 @@ class ProductionLine {
     $stf = 0;
 	$cur_time = time();
 	$diff = $cur_time - $date;
-	$phrase = array('second','minute','hour','day','week','month','year','decade');
+	$phrase = array('seconde','minute','heure','jour','semaine','mois','an','décennie');
 	$length = array(1,60,3600,86400,604800,2630880,31570560,315705600);
 
 	for($i = sizeof($length)-1; ($i >=0) && (($no =  $diff/$length[$i]) <= 1); $i--); if($i < 0) $i=0; $_time = $cur_time  -($diff%$length[$i]);
@@ -114,7 +119,7 @@ class ProductionLine {
 
 	if(($stf == 1)&&($i >= 1)&&(($cur_tm-$_time) > 0)) $value .= time_ago($_time);
 
-	return $value.' ago ';
+	return 'il y a ' . $value;
   }
 
   public function getProductivityOptions() {

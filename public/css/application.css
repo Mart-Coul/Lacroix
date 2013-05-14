@@ -79,11 +79,17 @@ body {
 }
 
 .line hr {
-  margin: 0 0 2em;
+  margin: 0 0 1em;
 }
 
 .line table {
   margin-bottom: 1.5em;
+}
+
+.line .title-main-metric {
+  color: #51CDEE;
+  margin-bottom: 1em;
+  margin-top: 0;
 }
 
 .line table#main-metrics {
@@ -119,6 +125,14 @@ body {
 .line table#secondary-metrics th.value {
   font-weight: bold;
   font-size: 2em;
+  text-align: center;
+  width: 33%;
+  color: #8C9DBB;
+}
+
+.line table#secondary-metrics th.value-no-icon {
+  font-weight: bold;
+  font-size: 3.2em;
   text-align: center;
   width: 33%;
   color: #8C9DBB;

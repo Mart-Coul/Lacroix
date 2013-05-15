@@ -1,4 +1,4 @@
-<table class="table report">
+<table class="table table-striped table-condensed report">
 <tbody> 
    <?php foreach ($lines as $line): ?>
    <?php $uid = sprintf('accordion-%s', md5(uniqid())); ?>
@@ -13,9 +13,9 @@
           </div>
         </div>
       </td>
-      <td><?=$this->escapeHtml($line->getName())?></td>
-      <td><?=$this->escapeHtml($line->getLastMainMetric())?></td>
-      <td><?=$this->escapeHtml($line->getLastTargetProductivity())?></td>
+      <td class="line-name"><?=$this->escapeHtml($line->getName())?></td>
+      <td class="actual"><?=$this->escapeHtml($line->getLastMainMetric())?></td>
+      <td class="target"><?=$this->escapeHtml($line->getLastTargetProductivity())?></td>
     </tr>
     <tr class="collapsible-details">
       <td colspan="4">
@@ -23,9 +23,26 @@
           <div class="accordion-inner">
 
             <div class="last-update"> 
-              <?=$this->escapeHtml($this->translate('Last update at:')); ?>
               <?=$line->getLastUpdateTime('m/d/Y H:i'); ?>
             </div>
+            <table id="secondary-metrics" class="mobile-report">
+			  <thead> 
+			    <tr>
+				  <th class="value"><i class="icon-tag icon-large"></i></th>
+				  <th class="value"><i class="icon-group icon-large"></i></th>
+				  <th class="value-no-icon">V</th> <!-- There are no font awesome icon for speed, therefore we use V that is the first letter for Vitesse which is speed in french. -->
+			    </tr>
+			  </thead>
+		
+			  <tbody>
+				  <tr>
+				    <td class="value-label"><?=$this->escapeHtml($line->getLastProductName())?></td>
+				    <td class="value-label"><?=$this->escapeHtml($line->getLastEmployees())?></td>
+				    <td class="value-label"><?=$this->escapeHtml($line->getLastReading() ? $line->getLastReading()->getReading() : "N/A")?></td>
+				  </tr>
+			  </tbody>
+		    </table>
+		    <?=$this->escapeHtml($line->getLastNotes())?>
           
           </div>
         </div>

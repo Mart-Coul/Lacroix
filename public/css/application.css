@@ -54,8 +54,8 @@ body {
 
 .line { 
   position: relative;
-  margin: 1em;
-  padding: 1em 1.5em;
+  margin: 1em 1em 1em 1em;
+  padding: 1em 1.5em 0em 1.5em;
   border-radius: 7px;
 }
 
@@ -89,12 +89,15 @@ body {
 
 .line .title-main-metric {
   color: #51CDEE;
-  margin-bottom: 1em;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  margin-bottom: 0.8em;
   margin-top: 0;
 }
 
 .line table#main-metrics {
-  width: 20em;
+  width: 18.5em;
 }
 
 .line table#main-metrics th.value {
@@ -120,7 +123,7 @@ body {
 }
 
 .line table#secondary-metrics {
-  width: 20em;
+  width: 18.5em;
 }
 
 .line table#secondary-metrics th.value {
@@ -190,30 +193,90 @@ body {
 }
 
 .line .last-update { 
-  margin: 1em 0 0 0;
+  margin: 1em -1em 0 0;
   font-size: 13px;
   text-align: right;
 }
 
 .icon-comment.comments-popover { 
   cursor: pointer;
+  color: black;
 }
 
 .line .stars { 
   position: absolute;
   top: 5px;
   left: 5px;
-  width: 80px;
+  width: 90px;
 
   color: gold;
 }
 
+.line .icon-comment { 
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 90px;
+
+  color: #51CDEE;
+}
+
 .table.report td { 
   vertical-align: middle;
+  font-size: 17px;
+}
+
+.table.report td a { 
+  color: black;
 }
 
 .table.report .toggle {  
-  width: 10px;
+  width: 20%;
+}
+
+.table.report td.line-name {  
+  width: 20%;
+}
+
+.table.report td.actual {  
+  width: 30%;
+}
+
+.table.report td.target {  
+  width: 30%;
+}
+
+.table.report table#secondary-metrics.mobile-report {
+  width: 100%;
+}
+
+.table.report table#secondary-metrics {
+  width: 18.5em;
+}
+
+.table.report table#secondary-metrics th.value {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  width: 33%;
+  color: #8C9DBB;
+}
+
+.table.report table#secondary-metrics th.value-no-icon {
+  font-weight: bold;
+  font-size: 1.6em;
+  text-align: center;
+  width: 33%;
+  color: #8C9DBB;
+}
+
+.table.report table#secondary-metrics td.value-label {
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 1.5em;
+  text-align: center;
+  color: #8C9DBB;
+  
 }
 
 .table.report .accordion-group { 
@@ -221,11 +284,11 @@ body {
 }
 
 .table.report tbody .bad td { 
-  background: red;
+  background: rgba(255, 18, 53, 1);
 }
 
-.table.report tbody .good td { 
-  background: green;
+.table.report tbody .ok td { 
+  background: rgba(0, 128, 0, .5);
 }
 
 .table.report tbody .warning td { 
@@ -238,4 +301,3 @@ body {
 
 .table.report .collapsible-details td .accordion-body { 
 }
-

@@ -1,5 +1,5 @@
 <?php foreach ($lines as $line): ?>
-<div class="line-container"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-name="<?=$this->escapeHtml($line->getName())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
+<div class="line-container"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-reading="<?=$this->escapeHtml($line->getLastReading() ? $line->getLastReading()->getReading() : "")?>" data-line-notes="<?=$this->escapeHtml($line->getLastNotes())?>" data-line-employee="<?=$this->escapeHtml($line->getLastEmployees())?>" data-line-name="<?=$this->escapeHtml($line->getName())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
    <div class="stars">
      <?php for ($i = 0; $i < $line->getLastStars(); $i++): ?>
      <i class="icon-star"></i>
@@ -24,7 +24,7 @@
            <td class="value-label">
              <?=$this->escapeHtml($this->translate('Actual'));?>
              <?php if ($line->getLastNotes()): ?>
-               <i class="icon-comment comments-popover" data-toggle="popover" data-content="<?=$this->escapeHtml($line->getLastNotes())?>" title="Notes"></i>
+               <i class="icon-comment comments-popover" data-toggle="popover"  data-content="<?=$this->escapeHtml($line->getLastNotes())?>" title="Notes"></i>
              <?php endif; ?>
            </td>
            <td class="value-label"><?=$this->escapeHtml($this->translate('Target'));?></td>
@@ -50,51 +50,12 @@
      </tbody>
    </table>
 
-
-<!--
-   <dl class="last-reading clearfix">
-     <dt><?=$this->escapeHtml($this->translate('Production'));?></dt>
-     <dd><?=$this->escapeHtml($line->getLastProductName())?></dd>
-
-     <dt><?=$this->escapeHtml($this->translate('Employees'));?></dt>
-     <dd><?=$this->escapeHtml($line->getLastEmployees())?></dd>
-
-     <dt><?=$this->escapeHtml($this->translate('Speed'));?></dt>
-     <dd><?=$this->escapeHtml($line->getLastSpeed())?></dd>
-   </dl>
--->
-<!--
-   <div class="options-container">
-   <?php if ($line->getProductivityOptions()): ?>
-   <table class="table table-striped">
-     <caption><?=$this->escapeHtml($this->translate('Proposition to increase'))?></caption>
-
-     <thead> 
-       <tr>
-         <th><?=$this->escapeHtml($this->translate('Motor'))?></th>
-         <th><?=$this->escapeHtml($this->translate('Result'))?></th>
-       </tr>
-     </thead>
-
-     <tbody>
-       <?php foreach ($line->getProductivityOptions() as $option): ?>
-         <tr>
-           <td><?=$this->escapeHtml($option['motor']);?></td>
-           <td><?=$this->escapeHtml($option['result']);?></td>
-         </tr>
-       <?php endforeach; ?>
-     </tbody>
-   </table>
-   <?php endif; ?>
-   </div>
--->
    <div class="controls">
      <a href="#reading-modal" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Add reading'))?></a>
      <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Recommendations'))?></a>
    </div>
 
    <div class="last-update"> 
-     <?=$this->escapeHtml($this->translate('Last update at:')); ?>
      <?=$line->getLastUpdateTime('m/d/Y H:i'); ?>
    </div>
    
@@ -109,8 +70,8 @@
 	   <table class="table table-striped">	
 		 <thead> 
 		   <tr>
-			 <th><?=$this->escapeHtml($this->translate('Motor'))?></th>
-			 <th><?=$this->escapeHtml($this->translate('Result'))?></th>
+			 <th><?=$this->escapeHtml($this->translate('Speed'))?></th>
+			 <th><?=$this->escapeHtml($this->translate('Kebab / Pers. / Hour'))?></th>
 		   </tr>
 		 </thead>
 	

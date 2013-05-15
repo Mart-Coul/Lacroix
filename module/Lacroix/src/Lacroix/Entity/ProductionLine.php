@@ -99,10 +99,6 @@ public function getLastMainMetric() {
       return 'ok';
     };
 
-    if ($this->getLastSpeed() >= $this->getLastTargetProductivity() * 0.95) {
-      return 'warning';
-    };
-
     return 'bad';
   }
 

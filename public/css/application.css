@@ -63,10 +63,6 @@ body {
   border: solid rgba(0, 128, 0, .5) 8px;
 }
 
-.line.warning { 
-  border: solid yellow 8px;
-}
-
 .line.bad { 
   border: solid rgba(255, 18, 53, 1) 8px;
 }
@@ -289,10 +285,6 @@ body {
 
 .table.report tbody .ok td { 
   background: rgba(0, 128, 0, .5);
-}
-
-.table.report tbody .warning td { 
-  background: yellow;
 }
 
 .table.report .collapsible-details td { 

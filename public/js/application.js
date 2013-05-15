@@ -25,9 +25,15 @@ $(function() {
     .on("click",
         function() {
           var line = $(this).closest(".line");
-		  
+
 		      $("#reading-modal #reading-modal-label").html("Add a new reading - Line " + line.data("line-name"));
-		  
+		      $("#reading-modal input[name='employees']").val(line.data("line-employee"));
+		      $("#reading-modal input[name='reading']").val(line.data("line-reading"));
+		      $("#reading-modal select[name='product_id']").val(line.data("product-id"));
+		  	  $("#reading-modal select[name='notes']").filter(function() {
+		  	  													return $(this).text() == line.data("line-notes");
+		  	  												}).prop('selected', true);
+		  	  
           $("#reading-modal")
             .data("line-id", 
                   line.data("line-id"));

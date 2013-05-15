@@ -30,9 +30,7 @@ $(function() {
 		      $("#reading-modal input[name='employees']").val(line.data("line-employee"));
 		      $("#reading-modal input[name='reading']").val(line.data("line-reading"));
 		      $("#reading-modal select[name='product_id']").val(line.data("product-id"));
-		  	  $("#reading-modal select[name='notes']").filter(function() {
-		  	  													return $(this).text() == line.data("line-notes");
-		  	  												}).prop('selected', true);
+		  	  $("#reading-modal select[name='notes']").val(line.data("line-notes"));
 		  	  
           $("#reading-modal")
             .data("line-id", 

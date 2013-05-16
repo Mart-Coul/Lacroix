@@ -55,7 +55,7 @@
      <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Recommendations'))?></a>
    </div>
 
-   <div class="last-update"> 
+   <div class="last-update  <?= $line->isUpdateMoreThanXHours(2) ? 'bad' : '' ?>" > 
      <?=$line->getLastUpdateTime('m/d/Y H:i'); ?>
    </div>
    

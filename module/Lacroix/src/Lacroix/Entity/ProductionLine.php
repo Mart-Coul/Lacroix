@@ -95,11 +95,20 @@ public function getLastMainMetric() {
   }
 
   public function getStatusClass() {
-    if ($this->getLastSpeed() > $this->getLastTargetProductivity()) {
+    if ($this->getLastSpeed() >= $this->getLastTargetProductivity()) {
       return 'ok';
     };
 
     return 'bad';
+  }
+
+  public function isUpdateMoreThanXHours($numberOfHours) {
+    $reading = $this->getLastReading();
+    if (!$reading) {
+      return false;
+    };
+    
+    return (time() - $reading->getCreatedAt()) / 3600 > $numberOfHours ? true : false;
   }
 
   public function getLastUpdateTime($format) {

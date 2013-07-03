@@ -32,6 +32,12 @@ class ProductionLine {
    */
   protected $room;
 
+  /**
+   * @ORM\ManyToOne(targetEntity="Main\Entity\User", fetch="LAZY")
+   * @ORM\JoinColumn(name="team_leader_id", referencedColumnName="id")
+   */
+  protected $team_leader;
+
   protected $_data_entry_repository;
   protected $_translator;
 
@@ -43,11 +49,27 @@ class ProductionLine {
 
   public function getRoomName() {
     $room = $this->getRoom();
-    if (!$room) { 
-      return null; 
+    if (!$room) {
+      return null;
     };
 
     return $room->getName();
+  }
+
+  public function getTeamLeaderName() {
+    if (!$this->getTeamLeader()) {
+      return null;
+    };
+
+    return $this->getTeamLeader()->getFullName();
+  }
+
+  public function getTeamLeaderId() {
+    if (!$this->getTeamLeader()) {
+      return null;
+    };
+
+    return $this->getTeamLeader()->getId();
   }
 
   public function getLastReading() {
@@ -88,7 +110,7 @@ class ProductionLine {
     $reading = $this->getLastReading();
     return $reading ? $reading->getTargetProductivity() : -1;
   }
-  
+
 public function getLastMainMetric() {
     $reading = $this->getLastReading();
     return $reading ? number_format(round($reading->estimateSpeed($reading->getReading()), 1),1) : $this->getTranslator()->translate('N/A');
@@ -107,7 +129,7 @@ public function getLastMainMetric() {
     if (!$reading) {
       return false;
     };
-    
+
     return (time() - $reading->getCreatedAt()) / 3600 > $numberOfHours ? true : false;
   }
 
@@ -116,10 +138,10 @@ public function getLastMainMetric() {
     if (!$reading) {
       return $this->getTranslator()->translate('N/A');
     };
-    
+
     return $this->formatDateXTimeAgo($reading->getCreatedAt());
   }
-  
+
   public function formatDateXTimeAgo($date) {
     $stf = 0;
 	$cur_time = time();
@@ -128,8 +150,8 @@ public function getLastMainMetric() {
 	$length = array(1,60,3600,86400,604800,2630880,31570560,315705600);
 
 	for($i = sizeof($length)-1; ($i >=0) && (($no =  $diff/$length[$i]) <= 1); $i--); if($i < 0) $i=0; $_time = $cur_time  -($diff%$length[$i]);
-	$no = floor($no); 
-	if($no > 1) $phrase[$i] .='s'; 
+	$no = floor($no);
+	if($no > 1) $phrase[$i] .='s';
 	$value=sprintf("%d %s ",$no,$phrase[$i]);
 
 	if(($stf == 1)&&($i >= 1)&&(($cur_tm-$_time) > 0)) $value .= time_ago($_time);
@@ -169,6 +191,10 @@ public function getLastMainMetric() {
     return $this->room;
   }
 
+  public function getTeamLeader() {
+    return $this->team_leader;
+  }
+
   public function getDataEntryRepository() {
     return $this->_data_entry_repository;
   }
@@ -192,6 +218,11 @@ public function getLastMainMetric() {
     return $this;
   }
 
+  public function setTeamLeader($value) {
+    $this->team_leader = $value;
+    return $this;
+  }
+
   public function setDataEntryRepository($value) {
     $this->_data_entry_repository = $value;
     return $this;
@@ -201,4 +232,5 @@ public function getLastMainMetric() {
     $this->_translator = $value;
     return $this;
   }
+
 }

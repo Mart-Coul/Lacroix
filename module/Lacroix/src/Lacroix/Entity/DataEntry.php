@@ -17,16 +17,22 @@ class DataEntry {
   protected $id;
 
   /**
+   * Unix timestamp
+   *
    * @ORM\Column(type="integer")
    */
   protected $created_at;
 
   /**
+   * Current production line speed meter reading
+   *
    * @ORM\Column(type="float")
    */
   protected $reading;
 
   /**
+   * Number of employees working at the moment reading was taken
+   *
    * @ORM\Column(type="integer")
    */
   protected $employees;
@@ -37,6 +43,9 @@ class DataEntry {
   protected $notes;
 
   /**
+   * What's currently  being produced on this  line (lines are not  limited to
+   * one product)
+   *
    * @ORM\ManyToOne(targetEntity="Product", fetch="LAZY")
    * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
    */
@@ -52,18 +61,14 @@ class DataEntry {
     $this->created_at = time();
   }
 
-  public function getProductName() {
-    return $this->getProduct()->getName();
-  }
-
-  public function getProductId() {
-    return $this->getProduct()->getId();
-  }
-
   public function getSpeed() {
     return $this->estimateSpeed($this->getReading());
   }
 
+  /*
+   * Estimate the line productivity metric for given line speed meter reading;
+   * used both for predications and current productivity calculation
+   */
   public function estimateSpeed($value) {
     if (!$this->getEmployees()) {
       return 0;
@@ -72,10 +77,9 @@ class DataEntry {
     return round($value * $this->getProductionLine()->getSpeedAdjustment() / $this->getEmployees(), 2);
   }
 
-  public function getTargetProductivity() {
-    return $this->getProduct()->getTargetProductivity();
-  }
-
+  /*
+   * Generate a syntectic coarsegrained "how good we are" metric
+   */
   public function getNumStars() {
     $over = $this->getSpeed() / $this->getTargetProductivity() - 1;
     if ($over < 0) {
@@ -83,6 +87,22 @@ class DataEntry {
     }
 
     return floor($over * 100 / $this->getProduct()->getStarPercent());
+  }
+
+  /*
+   * Incapsulation shortcuts
+   */
+
+  public function getTargetProductivity() {
+    return $this->getProduct()->getTargetProductivity();
+  }
+
+  public function getProductName() {
+    return $this->getProduct()->getName();
+  }
+
+  public function getProductId() {
+    return $this->getProduct()->getId();
   }
 
   /*

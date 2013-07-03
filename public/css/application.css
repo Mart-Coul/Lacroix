@@ -1,23 +1,23 @@
-body { 
+body {
   padding-top: 60px;
 }
 
-#layout-navbar .nav { 
+#layout-navbar .nav {
   padding: 14px 0;
 }
 
-#layout-navbar .nav li { 
+#layout-navbar .nav li {
   border-left: solid 2px #FF1235;
 }
 
-#layout-navbar .nav li:first-child { 
+#layout-navbar .nav li:first-child {
   border-style:none;
 }
 
-#layout-navbar .nav a { 
+#layout-navbar .nav a {
   padding: 0.1em 1em 0.1em 1em;
   margin-left: 0em;
-  
+
   font-size: 0.95em;
   text-transform: uppercase;
 
@@ -28,46 +28,46 @@ body {
   line-height: 1em;
 }
 
-#layout-navbar .nav .active a { 
+#layout-navbar .nav .active a {
   color: #FF1235;
 }
 
-.table-data td { 
+.table-data td {
   vertical-align: middle;
 }
 
-.table-data .actions { 
+.table-data .actions {
   text-align: right;
   border-left: none;
 }
 
-#generic-delete .controls { 
+#generic-delete .controls {
   margin-left: 0;
 }
 
-.line-container { 
+.line-container {
   float: left;
   /*width: 50%;*/
   width: 25em;
   max-width: 25em;
 }
 
-.line { 
+.line {
   position: relative;
   margin: 1em 1em 1em 1em;
   padding: 1em 1.5em 0em 1.5em;
   border-radius: 7px;
 }
 
-.line.ok { 
+.line.ok {
   border: solid rgba(0, 128, 0, .5) 8px;
 }
 
-.line.bad { 
+.line.bad {
   border: solid rgba(255, 18, 53, 1) 8px;
 }
 
-.line .name { 
+.line .name {
   margin: 0em auto 0.5em;
 
   font-weight: bold;
@@ -109,7 +109,7 @@ body {
   line-height: 2em;
   text-align: left;
   color: #51CDEE;
-  
+
   text-transform:uppercase;
 }
 
@@ -144,12 +144,12 @@ body {
   line-height: 1.5em;
   text-align: center;
   color: #8C9DBB;
-  
+
 }
 
 
 
-.line dl.last-reading dt { 
+.line dl.last-reading dt {
   margin: 0 0 1em 0;
   padding: 0;
   float: left;
@@ -157,7 +157,7 @@ body {
   width: 50%;
 }
 
-.line dl.last-reading dd { 
+.line dl.last-reading dd {
   margin: 0;
   padding: 0;
   float: left;
@@ -165,46 +165,50 @@ body {
   text-align: right;
 }
 
-.line .options-container { 
+.line .options-container {
   height: 12em;
 }
 
-.line .options-container table { 
+.line .options-container table {
   width: 100%;
 }
 
-.line .options-container table caption { 
+.line .options-container table caption {
   margin: 0 0 0.5em 0;
   text-align: left;
 }
 
 
 .line .options-container table th,
-.line .options-container table td { 
+.line .options-container table td {
   text-align: center;
 }
 
-.line .controls { 
+.line .controls {
   text-align: center;
 }
 
-.line .last-update { 
+.line .extra-info {
   margin: 1em -1em 0 0;
   font-size: 13px;
   text-align: right;
 }
 
-.line .last-update.bad { 
+.line .extra-info .team-leader {
+  margin-right: 1em;
+}
+
+.line .extra-info .last-update.bad {
   color: red;
   font-weight: bold;
 }
 
-.icon-comment.comments-popover { 
+.icon-comment.comments-popover {
   cursor: pointer;
   color: black;
 }
 
-.line .stars { 
+.line .stars {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -214,7 +218,7 @@ body {
   color: gold;
 }
 
-.line .icon-comment { 
+.line .icon-comment {
   position: absolute;
   bottom: 5px;
   left: 5px;
@@ -223,33 +227,33 @@ body {
   color: #51CDEE;
 }
 
-.table.report td { 
+.table.report td {
   vertical-align: middle;
   text-align: center;
   font-size: 19px;
 }
 
-.table.report td a { 
+.table.report td a {
   color: black;
 }
 
-.table.report .toggle {  
+.table.report .toggle {
   width: 10%;
 }
 
-.table.report td.line-name {  
+.table.report td.line-name {
   width: 15%;
 }
 
-.table.report td.actual {  
+.table.report td.actual {
   width: 30%;
 }
 
-.table.report td.target {  
+.table.report td.target {
   width: 30%;
 }
 
-.table.report td.update {  
+.table.report td.update {
   width: 15%;
 }
 
@@ -283,22 +287,22 @@ body {
   line-height: 1.5em;
   text-align: center;
   color: #8C9DBB;
-  
+
 }
 
-.table.report .accordion-group { 
+.table.report .accordion-group {
   border: none;
 }
 
-.table.report tbody .bad td { 
+.table.report tbody .bad td {
   background: rgba(255, 18, 53, 1);
 }
 
-.table.report tbody .ok td { 
+.table.report tbody .ok td {
   background: rgba(0, 128, 0, .5);
 }
 
-.table.report .collapsible-details td { 
+.table.report .collapsible-details td {
   padding: 0;
 }
 
@@ -308,15 +312,14 @@ body {
   margin: 1.2em 0 0.5em 0;
 }
 
-.table.report .collapsible-details td .accordion-body { 
+.table.report .collapsible-details td .accordion-body {
 }
 
 @media (max-width: 979px) {
 
-  #layout-navbar ul.nav li { 
+  #layout-navbar ul.nav li {
     border-left: none;
     margin: 0.5em 0;
   }
 
 }
-

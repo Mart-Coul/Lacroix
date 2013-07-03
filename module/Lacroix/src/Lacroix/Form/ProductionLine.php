@@ -31,6 +31,15 @@ class ProductionLine extends Form {
     };
     $room->setValueOptions($options);
 
+    $leader = new \Zend\Form\Element\Select('team_leader');
+    $leader->setLabel($t->translate('Team Leader'));
+
+    $options = array('' => '');
+    foreach ($em->getRepository('Main\Entity\User')->findAll() as $item) {
+      $options[$item->getId()] = $item->getFullName();
+    };
+    $leader->setValueOptions($options);
+
     // ---
 
     $csrf = new \Zend\Form\Element\Csrf('security');
@@ -43,6 +52,7 @@ class ProductionLine extends Form {
     $this->add($name);
     $this->add($speed_adjustment);
     $this->add($room);
+    $this->add($leader);
 
     $this->add($csrf);
     $this->add($ok);
@@ -66,17 +76,20 @@ class ProductionLine extends Form {
     $data = $this->getData();
 
     $room = $em->getRepository('Lacroix\Entity\Room')->find($data['room']);
+    $team_leader = $em->getRepository('Main\Entity\User')->find($data['team_leader']);
 
     return $item
       ->setName($data['name'])
       ->setSpeedAdjustment($data['speed_adjustment'])
-      ->setRoom($room);
+      ->setRoom($room)
+      ->setTeamLeader($team_leader);
   }
 
   public function loadEntity(\Lacroix\Entity\ProductionLine $item) {
     $this->setData(array('name' => $item->getName(),
                          'speed_adjustment' => $item->getSpeedAdjustment(),
-                         'room' => $item->getRoom()->getId()));
+                         'room' => $item->getRoom()->getId(),
+                         'team_leader' => $item->getTeamLeaderId()));
 
     return $this;
   }

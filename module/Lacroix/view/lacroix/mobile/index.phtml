@@ -10,7 +10,7 @@
    <hr>
    <h4 class="title-main-metric"><?=$this->escapeHtml($this->translate('Kebab / Pers. / Hour'));?></h4>
    <table id="main-metrics" class="">
-     <thead> 
+     <thead>
        <tr>
          <th class="value">
            <?=$this->escapeHtml($line->getLastMainMetric())?>
@@ -33,7 +33,7 @@
    </table>
 
    <table id="secondary-metrics" class="">
-     <thead> 
+     <thead>
        <tr>
          <th class="value"><i class="icon-tag icon-large"></i></th>
          <th class="value"><i class="icon-group icon-large"></i></th>
@@ -55,26 +55,31 @@
      <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Recommendations'))?></a>
    </div>
 
-   <div class="last-update  <?= $line->isUpdateMoreThanXHours(2) ? 'bad' : '' ?>" > 
-     <?=$line->getLastUpdateTime('m/d/Y H:i'); ?>
+   <div class="extra-info">
+     <span class="team-leader">
+       <?= $this->escapeHtml($line->getTeamLeaderName()) ?>
+     </span>
+     <span class="last-update  <?= $line->isUpdateMoreThanXHours(2) ? 'bad' : '' ?>" >
+       <?=$line->getLastUpdateTime('m/d/Y H:i'); ?>
+     </span>
    </div>
-   
+
    <div id="speed-modal-<?=$this->escapeHtml($line->getId())?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="reading-modal-label" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <button type="button" class="close" dgata-dismiss="modal" aria-hidden="true">&times;</button>
     <h3 id="reading-modal-label"><?=$this->escapeHtml($this->translate('Proposition to increase')); ?></h3>
   </div>
   <div class="modal-body">
      <div class="options-container">
 	   <?php if ($line->getProductivityOptions()): ?>
-	   <table class="table table-striped">	
-		 <thead> 
+	   <table class="table table-striped">
+		 <thead>
 		   <tr>
 			 <th><?=$this->escapeHtml($this->translate('Speed'))?></th>
 			 <th><?=$this->escapeHtml($this->translate('Kebab / Pers. / Hour'))?></th>
 		   </tr>
 		 </thead>
-	
+
 		 <tbody>
 		   <?php foreach ($line->getProductivityOptions() as $option): ?>
 			 <tr>
@@ -91,7 +96,7 @@
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-   
+
 </div></div>
 <?php endforeach; ?>
 
@@ -108,4 +113,3 @@
     <button class="btn btn-primary btn-save">Save changes</button>
   </div>
 </div>
-

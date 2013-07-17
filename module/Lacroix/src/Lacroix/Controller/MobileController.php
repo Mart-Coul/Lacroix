@@ -32,6 +32,7 @@ class MobileController extends ApplicationController {
     $reading = (float)$this->params()->fromPost('reading');
     $employees = (int)$this->params()->fromPost('employees');
     $notes = (string)$this->params()->fromPost('notes');
+    $team_leader = (string)$this->params()->fromPost('team_leader');
     $product_id = (int)$this->params()->fromPost('product_id');
 
     // Contract
@@ -68,7 +69,8 @@ class MobileController extends ApplicationController {
       ->setProduct($product)
       ->setEmployees($employees)
       ->setReading($reading)
-      ->setNotes($notes);
+      ->setNotes($notes)
+      ->setTeamLeader($team_leader);
 
     $em->persist($entry);
     $em->flush();

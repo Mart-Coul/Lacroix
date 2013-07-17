@@ -28,12 +28,15 @@ class Reading extends Form {
 
     $notes = new \Zend\Form\Element\Select('notes');
     $notes->setLabel($t->translate('Notes'));
-
+    
     $options = array('' => '');
     foreach ($em->getRepository('Lacroix\Entity\NoteTemplate')->findAll() as $item) {
       $options[$item->getContent()] = $item->getContent();
     };
     $notes->setValueOptions($options);
+    
+    $teamLeader = new \Zend\Form\Element\Text('team_leader');
+    $teamLeader->setLabel($t->translate('Team leader'));
 
     // ---
 
@@ -43,5 +46,6 @@ class Reading extends Form {
     $this->add($reading);
     $this->add($employees);
     $this->add($notes);
+    $this->add($teamLeader);
   }
 }

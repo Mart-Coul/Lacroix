@@ -31,6 +31,7 @@ $(function() {
 		      $("#reading-modal input[name='reading']").val(line.data("line-reading"));
 		      $("#reading-modal select[name='product_id']").val(line.data("product-id"));
 		  	  $("#reading-modal select[name='notes']").val(line.data("line-notes"));
+		  	  $("#reading-modal input[name='team_leader']").val(line.data("line-team-leader"));
 		  	  
           $("#reading-modal")
             .data("line-id", 
@@ -59,6 +60,7 @@ $(function() {
                    reading: modal.find(":input[name='reading']").val(),
                    employees: modal.find(":input[name='employees']").val(),
                    notes: modal.find(":input[name='notes']").val(),
+                   team_leader: modal.find(":input[name='team_leader']").val(),
                    product_id: product_id
                  })
             .done(function() {

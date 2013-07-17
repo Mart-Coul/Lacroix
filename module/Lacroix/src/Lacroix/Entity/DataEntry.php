@@ -43,6 +43,11 @@ class DataEntry {
   protected $notes;
 
   /**
+   * @ORM\Column(type="string")
+   */
+  protected $team_leader;
+  
+  /**
    * What's currently  being produced on this  line (lines are not  limited to
    * one product)
    *
@@ -129,6 +134,10 @@ class DataEntry {
     return $this->notes;
   }
 
+  public function getTeamLeader() {
+    return $this->team_leader;
+  }
+  
   public function getProductionLine() {
     return $this->production_line;
   }
@@ -157,6 +166,11 @@ class DataEntry {
     return $this;
   }
 
+  public function setTeamLeader($value) {
+    $this->team_leader = $value;
+    return $this;
+  }
+  
   public function setProductionLine($value) {
     $this->production_line = $value;
     return $this;

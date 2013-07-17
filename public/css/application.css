@@ -130,6 +130,15 @@ body {
   color: #8C9DBB;
 }
 
+.line table#secondary-metrics th.value.product {
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 1.1em;
+  text-align: center;
+  width: 33%;
+  color: #8C9DBB;
+}
+
 .line table#secondary-metrics th.value-no-icon {
   font-weight: bold;
   font-size: 3.2em;
@@ -186,21 +195,33 @@ body {
 
 .line .controls {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .line .extra-info {
-  margin: 1em -1em 0 0;
+  /*margin: 1em -1em 0 0;*/
   font-size: 13px;
-  text-align: right;
+ 
+  /*text-align: right;*/
 }
 
 .line .extra-info .team-leader {
-  margin-right: 1em;
+  /*margin-right: 1em;*/
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.line .extra-info .last-update {
+  font-weight: bold;
+  
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 .line .extra-info .last-update.bad {
   color: red;
-  font-weight: bold;
 }
 
 .icon-comment.comments-popover {
@@ -220,9 +241,8 @@ body {
 
 .line .icon-comment {
   position: absolute;
-  bottom: 5px;
-  left: 5px;
-  width: 90px;
+  top: 5px;
+  right: 5px;
 
   color: #51CDEE;
 }

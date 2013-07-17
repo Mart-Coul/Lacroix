@@ -24,7 +24,7 @@
            <td class="value-label">
              <?=$this->escapeHtml($this->translate('Actual'));?>
              <?php if ($line->getLastNotes()): ?>
-               <i class="icon-comment comments-popover" data-toggle="popover"  data-content="<?=$this->escapeHtml($line->getLastNotes())?>" title="Notes"></i>
+               <i class="icon-comment comments-popover" data-placement="bottom" data-toggle="popover"  data-content="<?=$this->escapeHtml($line->getLastNotes())?>" title="Notes"></i>
              <?php endif; ?>
            </td>
            <td class="value-label"><?=$this->escapeHtml($this->translate('Target'));?></td>
@@ -33,27 +33,34 @@
    </table>
 
    <table id="secondary-metrics" class="">
-     <thead>
-       <tr>
-         <th class="value"><i class="icon-tag icon-large"></i></th>
-         <th class="value"><i class="icon-group icon-large"></i></th>
-         <th class="value-no-icon">V</th> <!-- There are no font awesome icon for speed, therefore we use V that is the first letter for Vitesse which is speed in french. -->
-       </tr>
-     </thead>
-
-     <tbody>
-         <tr>
-           <td class="value-label"><?=$this->escapeHtml($line->getLastProductName())?></td>
-           <td class="value-label"><?=$this->escapeHtml($line->getLastEmployees())?></td>
-           <td class="value-label"><?=$this->escapeHtml($line->getLastReading() ? $line->getLastReading()->getReading() : "N/A")?></td>
-         </tr>
-     </tbody>
+	 <tr>
+       <th class="value product" rowspan="2"><?=$this->escapeHtml($line->getLastProductName())?></th>
+       <th class="value"><i class="icon-group icon-large"></i></th>
+       <th class="value-no-icon">V</th> <!-- There are no font awesome icon for speed, therefore we use V that is the first letter for Vitesse which is speed in french. -->
+     </tr>
+     <tr>
+       <td class="value-label"><?=$this->escapeHtml($line->getLastEmployees())?></td>
+       <td class="value-label"><?=$this->escapeHtml($line->getLastReading() ? $line->getLastReading()->getReading() : "N/A")?></td>
+     </tr>
    </table>
 
    <div class="controls">
      <a href="#reading-modal" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Add reading'))?></a>
      <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Recommendations'))?></a>
    </div>
+
+   <!--
+   <div class="extra-info">
+   <table id="main-metrics" class="">
+     <tbody>
+         <tr>
+           <td class="team-leader"><?= $this->escapeHtml($line->getTeamLeaderName()) ?></td>
+           <td class="last-update"><?=$line->getLastUpdateTime('m/d/Y H:i'); ?></td>
+         </tr>
+     </tbody>
+   </table>
+   </div>
+   -->
 
    <div class="extra-info">
      <span class="team-leader">

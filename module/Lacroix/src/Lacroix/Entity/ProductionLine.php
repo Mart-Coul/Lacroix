@@ -32,11 +32,6 @@ class ProductionLine {
    */
   protected $room;
 
-  /**
-   * @ORM\ManyToOne(targetEntity="Main\Entity\User", fetch="LAZY")
-   * @ORM\JoinColumn(name="team_leader_id", referencedColumnName="id")
-   */
-  protected $team_leader;
 
   protected $_data_entry_repository;
   protected $_translator;
@@ -54,22 +49,6 @@ class ProductionLine {
     };
 
     return $room->getName();
-  }
-
-  public function getTeamLeaderName() {
-    if (!$this->getTeamLeader()) {
-      return null;
-    };
-
-    return $this->getTeamLeader()->getFullName();
-  }
-
-  public function getTeamLeaderId() {
-    if (!$this->getTeamLeader()) {
-      return null;
-    };
-
-    return $this->getTeamLeader()->getId();
   }
 
   public function getLastReading() {
@@ -191,10 +170,6 @@ public function getLastMainMetric() {
     return $this->room;
   }
 
-  public function getTeamLeader() {
-    return $this->team_leader;
-  }
-
   public function getDataEntryRepository() {
     return $this->_data_entry_repository;
   }
@@ -215,11 +190,6 @@ public function getLastMainMetric() {
 
   public function setRoom($value) {
     $this->room = $value;
-    return $this;
-  }
-
-  public function setTeamLeader($value) {
-    $this->team_leader = $value;
     return $this;
   }
 

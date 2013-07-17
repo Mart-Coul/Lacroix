@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.1\n"
-"POT-Creation-Date: 2013-05-16 00:02-0500\n"
-"PO-Revision-Date: 2013-05-16 00:03-0500\n"
+"POT-Creation-Date: 2013-07-03 18:18-0500\n"
+"PO-Revision-Date: 2013-07-03 18:18-0500\n"
 "Last-Translator: Martin Coulombe <mart.coulombe@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -108,11 +108,11 @@ msgstr "Modifier un utilisateur"
 msgid "Delete user"
 msgstr "Supprimer un utilisateur"
 
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:59
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:79
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:84
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:94
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:117
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:81
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:101
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:106
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:116
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:139
 msgid "N/A"
 msgstr "N/A"
 
@@ -123,7 +123,7 @@ msgstr "Contenu"
 
 #: ../../module/Lacroix/src/Lacroix/Form/NoteTemplate.php:27
 #: ../../module/Lacroix/src/Lacroix/Form/Product.php:33
-#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:39
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:48
 #: ../../module/Lacroix/src/Lacroix/Form/Room.php:27
 #: ../../module/Lacroix/src/Lacroix/Form/User.php:36
 msgid "Save"
@@ -157,6 +157,10 @@ msgstr "Calcul d'ajustement"
 #: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:6
 msgid "Room"
 msgstr "Salle"
+
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:35
+msgid "Team Leader"
+msgstr "Chef d'équipe"
 
 #: ../../module/Lacroix/src/Lacroix/Form/Reading.php:14
 msgid "Product"
@@ -270,7 +274,7 @@ msgid "Please select a category to configure"
 msgstr "Choisir une catégorie à configurer"
 
 #: ../../module/Lacroix/view/lacroix/mobile/index.phtml:11
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:74
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:86
 msgid "Kebab / Pers. / Hour"
 msgstr "Bro. / Pers. / Heure"
 
@@ -282,23 +286,23 @@ msgstr "Actuel"
 msgid "Target"
 msgstr "Objectif"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:54
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:48
 msgid "Add reading"
 msgstr "Ajouter lecture"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:55
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:49
 msgid "Recommendations"
 msgstr "Recommandations"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:65
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:77
 msgid "Proposition to increase"
 msgstr "Recommandations"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:73
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:85
 msgid "Speed"
 msgstr "Vitesse"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:101
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:113
 msgid "Add a new reading"
 msgstr "Ajouter une lecture"
 

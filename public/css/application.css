@@ -52,6 +52,10 @@ body {
   max-width: 25em;
 }
 
+.line-container.hide-line {
+  display: none;
+}
+
 .line {
   position: relative;
   margin: 1em 1em 1em 1em;
@@ -234,7 +238,7 @@ body {
   top: 5px;
   left: 5px;
   width: 130px;
-  font-size: 22px;
+  font-size: 19px;
 
   color: gold;
 }
@@ -245,6 +249,12 @@ body {
   right: 5px;
 
   color: #51CDEE;
+}
+
+.hidden-line-list {
+  clear: both;
+  margin: 1em;
+
 }
 
 .table.report td {
@@ -342,4 +352,17 @@ body {
     margin: 0.5em 0;
   }
 
+}
+
+@media print {
+  .layout-normal .line-container {
+  	/*font-family:times,serif;font-size:10px;*/
+    transform: scale(0.8,0.8);
+	-ms-transform: scale(0.8,0.8); /* IE 9 */
+	-webkit-transform: scale(0.8,0.8); /* Safari and Chrome */
+  }
+  
+  hr {
+    display: none;
+  }
 }

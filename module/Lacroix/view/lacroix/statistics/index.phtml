@@ -2,6 +2,9 @@
 <tbody> 
    
    <?php foreach ($lines as $line): ?>
+     <? if(!$line->getLastReading() || $line->getLastReading()->getReading() == 0) {
+        continue; 
+      } ?>
    <?php $uid = sprintf('accordion-%s', md5(uniqid())); ?>
 
    <tr class="<?= $this->escapeHtml($line->getStatusClass()) == 'ok' ? 'success' : $this->escapeHtml($line->getStatusClass()) ?>">

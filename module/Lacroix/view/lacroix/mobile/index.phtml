@@ -1,5 +1,5 @@
 <?php foreach ($lines as $line): ?>
-<div class="line-container"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-reading="<?=$this->escapeHtml($line->getLastReading() ? $line->getLastReading()->getReading() : "")?>" data-line-team-leader="<?=$this->escapeHtml($line->getLastTeamLeader())?>" data-line-notes="<?=$this->escapeHtml($line->getLastNotes())?>" data-line-employee="<?=$this->escapeHtml($line->getLastEmployees())?>" data-line-name="<?=$this->escapeHtml($line->getName())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
+<div id="line-<?=$this->escapeHtml($line->getId())?>" class="line-container <?= $line->getLastReading() && $line->getLastReading()->getReading() != "0" ? "" : "hide-line" ?>"><div class="line <?=$this->escapeHtml($line->getStatusClass())?>" data-line-reading="<?=$this->escapeHtml($line->getLastReading() ? $line->getLastReading()->getReading() : "")?>" data-line-team-leader="<?=$this->escapeHtml($line->getLastTeamLeader())?>" data-line-notes="<?=$this->escapeHtml($line->getLastNotes())?>" data-line-employee="<?=$this->escapeHtml($line->getLastEmployees())?>" data-line-name="<?=$this->escapeHtml($line->getName())?>" data-line-id="<?=$this->escapeHtml($line->getId())?>" data-product-id="<?=$this->escapeHtml($line->getLastProductId())?>">
    <div class="stars">
      <?php for ($i = 0; $i < $line->getLastStars(); $i++): ?>
      <i class="icon-star"></i>
@@ -49,19 +49,6 @@
      <a href="#speed-modal-<?=$this->escapeHtml($line->getId())?>" role="button" class="btn-add btn btn-small" data-toggle="modal"><?=$this->escapeHtml($this->translate('Recommendations'))?></a>
    </div>
 
-   <!--
-   <div class="extra-info">
-   <table id="main-metrics" class="">
-     <tbody>
-         <tr>
-           <td class="team-leader">"Mart"</td>
-           <td class="last-update"><?=$line->getLastUpdateTime('m/d/Y H:i'); ?></td>
-         </tr>
-     </tbody>
-   </table>
-   </div>
-   -->
-
    <div class="extra-info">
      <span class="team-leader">
        <?=$this->escapeHtml($line->getLastTeamLeader())?>
@@ -105,6 +92,14 @@
 </div>
 
 </div></div>
+<?php endforeach; ?>
+
+<?php foreach ($lines as $line): ?>
+<div class="hidden-line-list ">
+  <? if(!$line->getLastReading() || $line->getLastReading()->getReading() == 0): ?>
+    <button class="btn btn-show btn-primary" type="button" data-line-id="<?=$this->escapeHtml($line->getId())?>"><?=$this->escapeHtml($this->translate('Add line ') . $line->getName())?></button>
+  <? endif; ?>
+</div>
 <?php endforeach; ?>
 
 <div id="reading-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="reading-modal-label" aria-hidden="true">

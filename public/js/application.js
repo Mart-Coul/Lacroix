@@ -39,6 +39,17 @@ $(function() {
           ;
         });
 
+   $(".hidden-line-list .btn-show")
+    .on("click",
+        function() {
+          var line = $(this).data("line-id");
+		  $('#line-' + line).removeClass('hide-line');
+		  $(this).hide();
+		  //var lineToShow = $(".line-container").find("[data-line-id='" + line + "']");
+		  //console.log(lineToShow.className);
+		  //lineToShow.removeClass('hide-line');
+        });
+
   $("#reading-modal")
     .on("click",
         ".btn-save:not(.disabled)",

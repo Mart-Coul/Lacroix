@@ -65,9 +65,14 @@ class ProductionLine {
     return $reading ? $reading->getNotes() : null;
   }
 
-  public function getLastTeamLeader() {
+  public function getLastTeamLeaderName() {
     $reading = $this->getLastReading();
-    return $reading ? $reading->getTeamLeader() : null;
+    return $reading && $reading->getTeamLeader() ? $reading->getTeamLeader()->getName() : null;
+  }
+
+  public function getLastTeamLeaderId() {
+    $reading = $this->getLastReading();
+    return $reading && $reading->getTeamLeader() ? $reading->getTeamLeader()->getId() : null;
   }
   
   public function getLastStars() {

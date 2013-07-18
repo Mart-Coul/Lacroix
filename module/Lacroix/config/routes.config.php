@@ -109,6 +109,21 @@ array(
     'child_routes' => $rest_routes,
   ),
 
+  'team-leaders' => array(
+    'type' => 'Segment',
+    'options' => array(
+      'route' => '/team-leaders',
+      'defaults' => array(
+        '__NAMESPACE__' => 'Lacroix\Controller',
+        'controller' => 'TeamLeaders',
+        'action' => 'index'
+      ),
+    ),
+
+    'may_terminate' => true,
+    'child_routes' => $rest_routes,
+  ),
+  
   'production-lines' => array(
     'type' => 'Segment',
     'options' => array(

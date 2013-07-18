@@ -27,12 +27,13 @@ class MobileController extends ApplicationController {
     $em = $this->getEntityManager();
     $line_repo = $em->getRepository('Lacroix\Entity\ProductionLine');
     $product_repo = $em->getRepository('Lacroix\Entity\Product');
+    $team_leader_repo = $em->getRepository('Lacroix\Entity\TeamLeader');
 
     $line_id = (int)$this->params('line_id');
     $reading = (float)$this->params()->fromPost('reading');
     $employees = (int)$this->params()->fromPost('employees');
     $notes = (string)$this->params()->fromPost('notes');
-    $team_leader = (string)$this->params()->fromPost('team_leader');
+    $team_leader_id = (int)$this->params()->fromPost('team_leader');
     $product_id = (int)$this->params()->fromPost('product_id');
 
     // Contract
@@ -44,7 +45,10 @@ class MobileController extends ApplicationController {
     $product_id_validator = new \Zend\Validator\ValidatorChain();
     $product_id_validator->attach(new \DoctrineModule\Validator\ObjectExists(array('object_repository' => $product_repo,
                                                                                    'fields' => 'id')));
-
+	
+	$team_leader_id_validator = new \Zend\Validator\ValidatorChain();
+    $team_leader_id_validator->attach(new \DoctrineModule\Validator\ObjectExists(array('object_repository' => $team_leader_repo,
+                                                                                   'fields' => 'id')));
     $reading_validator = new \Zend\Validator\ValidatorChain();
     $reading_validator->attach(new \Zend\Validator\Between(array('min' => 0,
                                                                  'max' => 9999)));
@@ -62,6 +66,7 @@ class MobileController extends ApplicationController {
     
     $line = $line_repo->find($line_id);
     $product = $product_repo->find($product_id);
+    $teamLeader = $team_leader_repo->find($team_leader_id);
 
     $entry = new \Lacroix\Entity\DataEntry();
     $entry
@@ -70,7 +75,7 @@ class MobileController extends ApplicationController {
       ->setEmployees($employees)
       ->setReading($reading)
       ->setNotes($notes)
-      ->setTeamLeader($team_leader);
+      ->setTeamLeader($teamLeader);
 
     $em->persist($entry);
     $em->flush();

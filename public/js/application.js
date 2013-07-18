@@ -31,7 +31,7 @@ $(function() {
 		      $("#reading-modal input[name='reading']").val(line.data("line-reading"));
 		      $("#reading-modal select[name='product_id']").val(line.data("product-id"));
 		  	  $("#reading-modal select[name='notes']").val(line.data("line-notes"));
-		  	  $("#reading-modal input[name='team_leader']").val(line.data("line-team-leader"));
+		  	  $("#reading-modal select[name='team_leader']").val(line.data("line-team-leader"));
 		  	  
           $("#reading-modal")
             .data("line-id", 

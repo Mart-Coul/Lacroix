@@ -35,9 +35,14 @@ class Reading extends Form {
     };
     $notes->setValueOptions($options);
     
-    $teamLeader = new \Zend\Form\Element\Text('team_leader');
+    $teamLeader = new \Zend\Form\Element\Select('team_leader');
     $teamLeader->setLabel($t->translate('Team leader'));
 
+ 	$options = array('' => '');
+    foreach ($em->getRepository('Lacroix\Entity\TeamLeader')->findAll() as $item) {
+      $options[$item->getId()] = $item->getName();
+    };
+    $teamLeader->setValueOptions($options);
     // ---
 
     // ---

@@ -11,7 +11,7 @@ return array('controllers' => array('invokables' => array('Lacroix\Controller\Pr
                                                           'Lacroix\Controller\Mobile' => 'Lacroix\Controller\MobileController',
                                                           'Lacroix\Controller\Statistics' => 'Lacroix\Controller\StatisticsController',
                                                           'Lacroix\Controller\Configuration' => 'Lacroix\Controller\ConfigurationController',
-                                                          
+                                                          'Lacroix\Controller\TeamLeaders' => 'Lacroix\Controller\TeamLeadersController',
                                                           ),
                                     ),
              'router' => array('routes' => (include __DIR__ . '/routes.config.php')),

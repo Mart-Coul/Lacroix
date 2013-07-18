@@ -43,7 +43,8 @@ class DataEntry {
   protected $notes;
 
   /**
-   * @ORM\Column(type="string")
+   * @ORM\ManyToOne(targetEntity="TeamLeader", fetch="LAZY")
+   * @ORM\JoinColumn(name="team_leader_id", referencedColumnName="id")
    */
   protected $team_leader;
   
@@ -104,6 +105,10 @@ class DataEntry {
 
   public function getProductName() {
     return $this->getProduct()->getName();
+  }
+
+  public function getTeamLeaderName() {
+    return $this->getTeamLeader()->getName();
   }
 
   public function getProductId() {

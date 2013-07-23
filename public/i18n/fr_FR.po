@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.1\n"
-"POT-Creation-Date: 2013-07-03 18:18-0500\n"
-"PO-Revision-Date: 2013-07-03 18:18-0500\n"
+"POT-Creation-Date: 2013-07-17 09:04-0500\n"
+"PO-Revision-Date: 2013-07-17 09:04-0500\n"
 "Last-Translator: Martin Coulombe <mart.coulombe@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -108,11 +108,11 @@ msgstr "Modifier un utilisateur"
 msgid "Delete user"
 msgstr "Supprimer un utilisateur"
 
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:81
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:101
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:106
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:116
-#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:139
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:60
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:85
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:90
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:100
+#: ../../module/Lacroix/src/Lacroix/Entity/ProductionLine.php:123
 msgid "N/A"
 msgstr "N/A"
 
@@ -123,7 +123,7 @@ msgstr "Contenu"
 
 #: ../../module/Lacroix/src/Lacroix/Form/NoteTemplate.php:27
 #: ../../module/Lacroix/src/Lacroix/Form/Product.php:33
-#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:48
+#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:39
 #: ../../module/Lacroix/src/Lacroix/Form/Room.php:27
 #: ../../module/Lacroix/src/Lacroix/Form/User.php:36
 msgid "Save"
@@ -158,10 +158,6 @@ msgstr "Calcul d'ajustement"
 msgid "Room"
 msgstr "Salle"
 
-#: ../../module/Lacroix/src/Lacroix/Form/ProductionLine.php:35
-msgid "Team Leader"
-msgstr "Chef d'équipe"
-
 #: ../../module/Lacroix/src/Lacroix/Form/Reading.php:14
 msgid "Product"
 msgstr "Produit"
@@ -178,7 +174,12 @@ msgstr "Employés"
 msgid "Notes"
 msgstr "Commentaires"
 
+#: ../../module/Lacroix/src/Lacroix/Form/Reading.php:39
+msgid "Team leader"
+msgstr "Chef d'équipe"
+
 #: ../../module/Lacroix/src/Lacroix/Form/User.php:20
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:4
 #: ../../module/Lacroix/view/lacroix/users/index.phtml:4
 msgid "Username"
 msgstr "Utilisateur"
@@ -223,6 +224,7 @@ msgid "Production"
 msgstr "Production"
 
 #: ../../module/Main/src/Main/Form/GenericDelete.php:24
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:19
 #: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:17
 #: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:21
 #: ../../module/Lacroix/view/lacroix/products/index.phtml:21
@@ -269,12 +271,35 @@ msgstr "Lignes de productions"
 msgid "Generic Commens"
 msgstr "Commentaires"
 
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:5
+#: ../../module/Lacroix/view/lacroix/users/index.phtml:5
+msgid "Roles"
+msgstr "Rôles"
+
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:7
+#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:6
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:8
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:8
+#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:6
+#: ../../module/Lacroix/view/lacroix/users/index.phtml:7
+msgid "Create"
+msgstr "Ajouter"
+
+#: ../../module/Lacroix/view/lacroix/admin-users/index.phtml:18
+#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:16
+#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:20
+#: ../../module/Lacroix/view/lacroix/products/index.phtml:20
+#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:16
+#: ../../module/Lacroix/view/lacroix/users/index.phtml:18
+msgid "Edit"
+msgstr "Modifier"
+
 #: ../../module/Lacroix/view/lacroix/configuration/index.phtml:1
 msgid "Please select a category to configure"
 msgstr "Choisir une catégorie à configurer"
 
 #: ../../module/Lacroix/view/lacroix/mobile/index.phtml:11
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:86
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:73
 msgid "Kebab / Pers. / Hour"
 msgstr "Bro. / Pers. / Heure"
 
@@ -294,37 +319,21 @@ msgstr "Ajouter lecture"
 msgid "Recommendations"
 msgstr "Recommandations"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:77
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:64
 msgid "Proposition to increase"
 msgstr "Recommandations"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:85
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:72
 msgid "Speed"
 msgstr "Vitesse"
 
-#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:113
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:100
+msgid "Add line "
+msgstr "Ajouter ligne"
+
+#: ../../module/Lacroix/view/lacroix/mobile/index.phtml:108
 msgid "Add a new reading"
 msgstr "Ajouter une lecture"
-
-#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:6
-#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:8
-#: ../../module/Lacroix/view/lacroix/products/index.phtml:8
-#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:6
-#: ../../module/Lacroix/view/lacroix/users/index.phtml:7
-msgid "Create"
-msgstr "Ajouter"
-
-#: ../../module/Lacroix/view/lacroix/note-templates/index.phtml:16
-#: ../../module/Lacroix/view/lacroix/production-lines/index.phtml:20
-#: ../../module/Lacroix/view/lacroix/products/index.phtml:20
-#: ../../module/Lacroix/view/lacroix/rooms/index.phtml:16
-#: ../../module/Lacroix/view/lacroix/users/index.phtml:18
-msgid "Edit"
-msgstr "Modifier"
-
-#: ../../module/Lacroix/view/lacroix/users/index.phtml:5
-msgid "Roles"
-msgstr "Rôles"
 
 #: ../../module/Lacroix/view/layout/mobile.phtml:8
 msgid "Lacroix"

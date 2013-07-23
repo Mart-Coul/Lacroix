@@ -1,0 +1,34 @@
+<table class="table table-hover table-bordered table-data">
+  <thead>
+    <tr>
+      <th><?=$this->escapeHtml($this->translate('Data'))?></th>
+      <th><?=$this->escapeHtml($this->translate('Line'))?></th>
+      <th><?=$this->escapeHtml($this->translate('Product'))?></th>
+      <th><?=$this->escapeHtml($this->translate('Created At'))?></th>
+      <th><?=$this->escapeHtml($this->translate('Employees'))?></th>
+      <th><?=$this->escapeHtml($this->translate('Objective'))?></th>
+      <th><?=$this->escapeHtml($this->translate('Actual'))?></th>
+      
+      <th class="actions">
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>  
+    <?php foreach ($items as $item): ?>
+    <tr class="<?= $this->escapeHtml($item->estimateSpeed($item->getReading())) >= $this->escapeHtml($item->getTargetProductivity()) ? "success" : "error" ?>">
+      <td><?=$this->escapeHtml($item->getId())?></td>
+      <td><?=$this->escapeHtml($item->getProductionLine()->getName())?></td>
+      <td><?=$this->escapeHtml($item->getProductName())?></td>
+      <td><?=$this->escapeHtml($item->getCreatedAt())?></td>
+      <td><?=$this->escapeHtml($item->getEmployees())?></td>
+      <td><?=$this->escapeHtml($item->getTargetProductivity())?></td>
+      <td><?=$this->escapeHtml($item->estimateSpeed($item->getReading()))?></td>
+      <td class="actions">
+        <a class="btn" href="<?=$this->escapeHtml($this->url('readings/edit', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Edit'))?>"><i class="icon icon-pencil"></i></a>
+        <a class="btn btn-danger" href="<?=$this->escapeHtml($this->url('readings/delete', array('id' => $item->getId())))?>" title="<?=$this->escapeHtml($this->translate('Delete'))?>"><i class="icon icon-trash"></i></a>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</div>

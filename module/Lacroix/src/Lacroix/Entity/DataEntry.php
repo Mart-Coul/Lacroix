@@ -80,7 +80,7 @@ class DataEntry {
       return 0;
     };
 
-    return round($value * $this->getProductionLine()->getSpeedAdjustment() / $this->getEmployees(), 2);
+    return round($value * $this->getProductionLine()->getSpeedAdjustment() / $this->getEmployees(), 1);
   }
 
   /*
@@ -124,9 +124,13 @@ class DataEntry {
   }
 
   public function getCreatedAt() {
-    return $this->created_at;
+    return date("Y-m-d H:i", $this->created_at);
   }
 
+  public function getCreatedAtUnix() {
+    return $this->created_at;
+  }
+  
   public function getReading() {
     return $this->reading;
   }

@@ -128,13 +128,14 @@ public function getLastMainMetric() {
       return $this->getTranslator()->translate('N/A');
     };
 
-    return $this->formatDateXTimeAgo($reading->getCreatedAt());
+    return $this->formatDateXTimeAgo($reading->getCreatedAtUnix());
   }
 
   public function formatDateXTimeAgo($date) {
     $stf = 0;
 	$cur_time = time();
 	$diff = $cur_time - $date;
+	
 	$phrase = array('seconde','minute','heure','jour','semaine','mois','an','décennie');
 	$length = array(1,60,3600,86400,604800,2630880,31570560,315705600);
 

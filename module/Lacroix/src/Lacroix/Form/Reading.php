@@ -5,7 +5,7 @@ namespace Lacroix\Form;
 use Zend\Form\Form;
 
 class Reading extends Form {
-  public function __construct($t, $em) {
+  public function __construct($t, $em, $fullForm = false) {
     parent::__construct('reading');
 
     // ---
@@ -52,5 +52,51 @@ class Reading extends Form {
     $this->add($employees);
     $this->add($notes);
     $this->add($teamLeader);
+    
+    if ($fullForm) {
+    
+      $line = new \Zend\Form\Element\Hidden('line');
+    
+      $csrf = new \Zend\Form\Element\Csrf('security');
+
+      $ok = new \Zend\Form\Element\Submit('save');
+      $ok->setValue($t->translate('Save'));
+
+	  $this->add($line);
+	  $this->add($csrf);
+      $this->add($ok);
+    }
   }
+  
+  public function updateEntity($em, \Lacroix\Entity\DataEntry $item) {
+    $data = $this->getData();
+
+    $productionLine = $em->getRepository('Lacroix\Entity\ProductionLine')->find($data['line']);
+    $product = $em->getRepository('Lacroix\Entity\Product')->find($data['product_id']);
+    $teamLeader = $em->getRepository('Lacroix\Entity\TeamLeader')->find($data['team_leader']);
+
+    return $item
+      ->setProductionLine($productionLine)
+      ->setProduct($product)
+      ->setEmployees($data['employees'])
+      ->setReading($data['reading'])
+      ->setNotes($data['notes'])
+      ->setTeamLeader($teamLeader);
+  }
+
+  public function loadEntity(\Lacroix\Entity\DataEntry $item) {
+    $this->setData(array('employees' => $item->getEmployees(),
+    					 'reading'   => $item->getReading(),
+    					 'notes' 	 => $item->getNotes(),
+    					 'team_leader' => $item->getTeamLeader(),
+    					 'product_id' 	 => $item->getProduct()->getId(),
+    					 'line' 	 => $item->getProductionLine()->getId()));
+
+
+	
+    return $this;
+  }
+  
+  
+   
 }

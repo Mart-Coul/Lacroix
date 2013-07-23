@@ -123,6 +123,21 @@ array(
     'may_terminate' => true,
     'child_routes' => $rest_routes,
   ),
+
+  'data-entries' => array(
+    'type' => 'Segment',
+    'options' => array(
+      'route' => '/data-entries',
+      'defaults' => array(
+        '__NAMESPACE__' => 'Lacroix\Controller',
+        'controller' => 'DataEntries',
+        'action' => 'index'
+      ),
+    ),
+
+    'may_terminate' => true,
+    'child_routes' => $rest_routes,
+  ),
   
   'production-lines' => array(
     'type' => 'Segment',
@@ -138,6 +153,22 @@ array(
     'may_terminate' => true,
     'child_routes' => $rest_routes,
   ),
+  
+  'readings' => array(
+    'type' => 'Segment',
+    'options' => array(
+      'route' => '/readings',
+      'defaults' => array(
+        '__NAMESPACE__' => 'Lacroix\Controller',
+        'controller' => 'DataEntries',
+        'action' => 'index'
+      ),
+    ),
+
+    'may_terminate' => true,
+    'child_routes' => $rest_routes,
+  ),
+
 
   'admin-users' => array(
     'type' => 'Segment',
